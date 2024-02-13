@@ -2,6 +2,14 @@
 
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
+use App\Http\Controllers\PlantController;
+use App\Http\Controllers\ContractorController;
+use App\Http\Controllers\ApprenticeController;
+use App\Http\Controllers\EmailOneController;
+use App\Http\Controllers\EmailTwoController;
+use App\Http\Controllers\EmailThreeController;
+use App\Http\Controllers\HomeController;
+
 
 
 /*
@@ -21,4 +29,10 @@ Route::get('/', function () {
 
 Auth::routes();
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('/home', [HomeController::class, 'index'])->name('home');
+Route::resource('planta', PlantController::class)->names('plant');
+Route::resource('contratistas',ContractorController::class)->names('contractor');
+Route::resource('aprendices',ApprenticeController::class)->names('apprentice');
+Route::resource('primer correo',EmailOneController::class)->names('emailone');
+Route::resource('segundo correo',EmailTwoController::class)->names('emailtwo');
+Route::resource('tercer correo',EmailThreeController::class)->names('emailthree');

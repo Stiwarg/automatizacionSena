@@ -3,21 +3,7 @@
       <!-- Add icons to the links using the .nav-icon class
            with font-awesome or any other icon font library -->
       <li class="nav-item menu-open">
-        <a href="#" class="nav-link active">
-          <i class="nav-icon fas fa-tachometer-alt"></i>
-          <p>
-            Dashboard
-            <i class="right fas fa-angle-left"></i>
-          </p>
-        </a>
-        <ul class="nav nav-treeview">
-          <li class="nav-item">
-            <a href="./index2.html" class="nav-link active">
-              <i class="far fa-circle nav-icon"></i>
-              <p>Dashboard v2</p>
-            </a>
-          </li>
-        </ul>
+       
       </li>
       <li class="nav-item">
         <a href="#" class="nav-link">
@@ -30,19 +16,19 @@
         <ul class="nav nav-treeview">
         
           <li class="nav-item">
-            <a href="pages/charts/flot.html" class="nav-link">
+            <a href="{{ route('apprentice.index') }}" class="nav-link">
               <i class="far fa-circle nav-icon"></i>
               <p>Aprendices</p>
             </a>
           </li>
           <li class="nav-item">
-            <a href="pages/charts/inline.html" class="nav-link">
+            <a href="{{ route('contractor.index') }}" class="nav-link">
               <i class="far fa-circle nav-icon"></i>
               <p>Contratistas</p>
             </a>
           </li>
           <li class="nav-item">
-            <a href="pages/charts/uplot.html" class="nav-link">
+            <a href="{{ route('plant.index') }}" class="nav-link">
               <i class="far fa-circle nav-icon"></i>
               <p>Planta</p>
             </a>
@@ -59,19 +45,19 @@
         </a>
         <ul class="nav nav-treeview">
           <li class="nav-item">
-            <a href="pages/forms/editors.html" class="nav-link">
+            <a href="{{ route('emailone.index') }}" class="nav-link">
               <i class="far fa-circle nav-icon"></i>
               <p>Primer Correo</p>
             </a>
           </li>
           <li class="nav-item">
-            <a href="pages/forms/editors.html" class="nav-link">
+            <a href="{{ route('emailtwo.index') }}" class="nav-link">
               <i class="far fa-circle nav-icon"></i>
               <p>Segundo Correo</p>
             </a>
           </li>
           <li class="nav-item">
-            <a href="pages/forms/editors.html" class="nav-link">
+            <a href="{{ route('emailthree.index') }}" class="nav-link">
               <i class="far fa-circle nav-icon"></i>
               <p>Tercer Correo</p>
             </a>
