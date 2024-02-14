@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\instructore;
+
 
 class PlantController extends Controller
 {
@@ -11,7 +13,8 @@ class PlantController extends Controller
      */
     public function index()
     {
-        return view('tables.index_plant');
+        $instructores = instructore::all();
+        return view('tables.index_plant', compact('instructores'));
     }
 
     /**

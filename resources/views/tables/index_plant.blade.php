@@ -1,34 +1,37 @@
 @extends('layouts.main_template')
 @section('contenido')
 
-<table class="table table-bordered">
+<h1>Tabla de planta</h1>
+<table class="table table-bordered" id="Table">
     <thead>
       <tr>
-        <th scope="col">#</th>
-        <th scope="col">First</th>
-        <th scope="col">Last</th>
-        <th scope="col">Handle</th>
+        <th scope="col">Identificacion</th>
+        <th scope="col">Nombre</th>
+        <th scope="col">Correo</th>
+        <th scope="col">Telefono</th>
+        <th scope="col">Enviar Reporte</th>
       </tr>
     </thead>
     <tbody>
-      <tr>
-        <th scope="row">1</th>
-        <td>Mark</td>
-        <td>Otto</td>
-        <td>@mdo</td>
-      </tr>
-      <tr>
-        <th scope="row">2</th>
-        <td>Jacob</td>
-        <td>Thornton</td>
-        <td>@fat</td>
-      </tr>
-      <tr>
-        <th scope="row">3</th>
-        <td colspan="2">Larry the Bird</td>
-        <td>@twitter</td>
-      </tr>
+      @foreach ($instructores as $plant)
+        <tr>
+          <td>{{$plant->identificacion}}</td>
+          <td>{{$plant->nombre}}</td>
+          <td>{{$plant->correo}}</td>
+          <td>{{$plant->telefono}}</td>
+          <td>
+              <input type="hidden" name="" value="{{$plant->id}}">
+              <span class="btn btn-primary btn-sm mr3">Enviar Correo</span>
+          </td>
+        </tr>
+      @endforeach
     </tbody>
   </table>
   
+@endsection
+
+@section('js')
+    <script>
+      $(document).ready(function () { $('#Table').DataTable(); });
+    </script>
 @endsection

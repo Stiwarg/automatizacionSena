@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\aprendice;
 
 class ApprenticeController extends Controller
 {
@@ -11,7 +12,8 @@ class ApprenticeController extends Controller
      */
     public function index()
     {
-        return view('tables.index_apprentice');
+        $aprendices = aprendice::all();
+        return view('tables.index_apprentice', compact('instructores'));
     }
 
     /**
