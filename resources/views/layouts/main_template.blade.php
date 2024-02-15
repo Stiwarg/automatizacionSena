@@ -13,6 +13,7 @@
   <link rel="stylesheet" href="{{asset('css/OverlayScrollbars.min.css')}}">
   <!-- Theme style -->
   <link rel="stylesheet" href="{{asset('css/adminlte.min.css')}}">
+  <link rel="stylesheet" href="{{asset('css/summernote-bs4.min.css')}}">
 
   <link href="https://cdn.datatables.net/v/dt/dt-1.13.10/datatables.min.css" rel="stylesheet">
 
@@ -261,10 +262,11 @@
 <!-- AdminLTE for demo purposes Ya esta -->
 <script src="{{asset('js/demo.js')}}"></script>
 
-
 <!-- AdminLTE dashboard demo (This is only for demo purposes) Ya esta -->
 <script src="{{asset('js/dashboard2.js')}}"></script>
 <script src="https://cdn.datatables.net/v/dt/dt-1.13.10/datatables.min.js"></script>
+<script src="{{asset('js/summernote-bs4.min.js')}}"></script>
+
 
 @yield('js')
 

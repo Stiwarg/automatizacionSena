@@ -9,6 +9,7 @@ use App\Http\Controllers\EmailOneController;
 use App\Http\Controllers\EmailTwoController;
 use App\Http\Controllers\EmailThreeController;
 use App\Http\Controllers\HomeController;
+use APP\Http\Controllers\PlantillasCorreosController;
 
 
 
@@ -36,3 +37,5 @@ Route::resource('aprendices',ApprenticeController::class)->names('apprentice');
 Route::resource('primer correo',EmailOneController::class)->names('emailone');
 Route::resource('segundo correo',EmailTwoController::class)->names('emailtwo');
 Route::resource('tercer correo',EmailThreeController::class)->names('emailthree');
+
+Route::get('mostrar-correo/{id}', [PlantillasCorreosController::class, 'show'])->name('mostrarCorreo.show');

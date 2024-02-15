@@ -1,18 +1,23 @@
 @extends('layouts.main_template')
 @section('contenido')
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
+
    <div class="row">
         <div class="col-md-12">
             <div class="card card-outline card-info">
                 <div class="card-header">
-                    <h3 class="card-title">
-                    Summernote
-                    </h3>
+                    <h1 class="card-title">
+                        Formulario del Primer Correo Electronico
+                    </h1>
                 </div>
                 <!-- /.card-header -->
-                <div class="card-body">
-                    <textarea id="summernote" style="width: 100%; height: 50vh;">
-                        hola como estas
-                    </textarea>
+                <div class="form-group">
+                    <form action="" method="POST">
+                        <textarea id="compose-textarea" class="form-control" 
+                        style="height: 300px;">
+                        </textarea>
+                        <input type="submit" value="Enviar Correo" class="btn btn-primary btn-lg mr6">
+                    </form>
                 </div>
                 <div class="card-footer">
                     Visit <a href="https://github.com/summernote/summernote/">Summernote</a> documentation for more examples and information about the plugin.
@@ -20,4 +25,12 @@
             </div>
         </div>
     </div>
+@endsection
+
+@section('js')
+    <script>
+        $(function (){
+            $('#compose-textarea').summernote()
+        })
+    </script>
 @endsection
