@@ -5,16 +5,26 @@
 <table class="table table-bordered" id="Table">
     <thead>
       <tr>
-        <th scope="col">#</th>
         <th scope="col">Identificacion</th>
         <th scope="col">Nombre</th>
         <th scope="col">Correo</th>
         <th scope="col">Telefono</th>
-        <th scope="col">Tipo Contrato</th>
         <th scope="col">Enviar Reporte</th>
       </tr>
     </thead>
     <tbody>
+        @foreach ($contractors as $contra)
+        <tr>
+          <td>{{$contra->identificacion}}</td>
+          <td>{{$contra->nombre}}</td>
+          <td>{{$contra->correo}}</td>
+          <td>{{$contra->telefono}}</td>
+          <td>
+              <input type="hidden" name="" value="{{$contra->id}}">
+              <span class="btn btn-primary btn-sm mr3">Enviar Correo</span>
+          </td>
+        </tr>
+        @endforeach
     </tbody>
   </table>
 

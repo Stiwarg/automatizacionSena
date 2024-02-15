@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\instructore;
+use App\Models\Instructore;
 
 
 class PlantController extends Controller
@@ -13,7 +13,7 @@ class PlantController extends Controller
      */
     public function index()
     {
-        $instructores = instructore::all();
+        $instructores = Instructore::all();
         return view('tables.index_plant', compact('instructores'));
     }
 

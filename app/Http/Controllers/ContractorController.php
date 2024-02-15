@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\instructore;
 use Illuminate\Http\Request;
 
 class ContractorController extends Controller
@@ -11,7 +12,8 @@ class ContractorController extends Controller
      */
     public function index()
     {
-        return view('tables.index_contractor');
+        $contractors = instructore::all();
+        return view('tables.index_contractor', compact('contractors'));
     }
 
     /**

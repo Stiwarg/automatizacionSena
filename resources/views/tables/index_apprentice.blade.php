@@ -5,7 +5,6 @@
 <table class="table table-bordered" id="Table">
     <thead>
       <tr>
-        <th scope="col">#</th>
         <th scope="col">Identificacion</th>
         <th scope="col">Nombre</th>
         <th scope="col">Apellido</th>
@@ -13,7 +12,14 @@
       </tr>
     </thead>
     <tbody>
-
+        @foreach ($aprendices as $aprendiz)
+            <tr>
+                <td>{{$aprendiz->identificacion_aprendiz}}</td>
+                <td>{{$aprendiz->nombre_aprendiz}}</td>
+                <td>{{$aprendiz->apellidos_aprendiz}}</td>
+                <td>{{$aprendiz->estado_formacion}}</td>
+            </tr>
+        @endforeach
     </tbody>
   </table>
 
