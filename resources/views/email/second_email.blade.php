@@ -11,9 +11,11 @@
                 </div>
                 <!-- /.card-header -->
                 <div class="form-group">
-                    <form action="" method="POST">
+                    <form action="{{ route('emailtwo.update',['id' => 2]) }}" method="POST">
+                        @method('PUT')
+                        @csrf
                         <textarea id="compose-textarea" class="form-control" 
-                        style="height: 300px">
+                        style="height: 300px">{{ $plantilla2->informacion_plantilla }}
                         </textarea>
                         <input type="submit" value="Enviar Correo" class="btn btn-primary btn-lg mr6">
                     </form>

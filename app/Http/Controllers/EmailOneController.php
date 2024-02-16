@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\PlantillasCorreo;
 
 class EmailOneController extends Controller
 {
@@ -11,47 +12,84 @@ class EmailOneController extends Controller
      */
     public function index()
     {
-        return view('email.first_email');
-    }
+        $plantilla1 = PlantillasCorreo::select('pc.id', 'pc.informacion_plantilla')
+                        ->from('plantillascorreos as pc')
+                        ->where('pc.id', 1)
+                        ->first();
 
-    /**
-     * Show the form for creating a new resource.
-     */
-    public function create()
-    {
-        //
+        return view('email.first_email', compact('plantilla1'));
     }
-
-    /**
-     * Store a newly created resource in storage.
-     */
-    public function store(Request $request)
+    
+    public function secondEmail()
     {
-        //
+        $plantilla2 = PlantillasCorreo::select('pc.id', 'pc.informacion_plantilla')
+                        ->from('plantillascorreos as pc')
+                        ->where('pc.id', 2)
+                        ->first();
+    
+        return view('email.second_email', compact('plantilla2'));
     }
-
-    /**
-     * Display the specified resource.
-     */
-    public function show(string $id)
+    
+    public function thirdEmail()
     {
-        //
+        $plantilla3 = PlantillasCorreo::select('pc.id', 'pc.informacion_plantilla')
+                        ->from('plantillascorreos as pc')
+                        ->where('pc.id', 3)
+                        ->first();
+    
+        return view('email.third_email', compact('plantilla3'));
     }
-
-    /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit(string $id)
-    {
-        //
-    }
+    
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(Request $request)
     {
-        //
+        //Se obtine el identificador de la primera plantilla
+        $plantilla1 = PlantillasCorreo::find(1);
+        
+        //Se actualiza los campos necesarios
+        $plantilla1->informacion_plantilla = $request->input('informacion_plantilla');
+        
+        //Se guardan los cambios en la base de datos
+        $plantilla1->save();
+
+        //Se retorna a la ruta indicada d la plantilla
+        return redirect(route('email.first_email'));
+
+    }
+
+    
+    public function updateSecondEmail(Request $request)
+    {
+        //Se obtine el identificador de la segunda plantilla
+        $plantilla2 = PlantillasCorreo::find(2);
+        
+        //Se actualiza los campos necesarios
+        $plantilla2->informacion_plantilla = $request->input('informacion_plantilla');
+        
+        //Se guardan los cambios en la base de datos
+        $plantilla2->save();
+        
+        //Se retorna a la ruta indicada d la plantilla
+        return redirect(route('email.second_email'));
+    }
+
+    public function updateThirdEmail(Request $request)
+    {
+        //Se obtine el identificador de la tercera plantilla
+        $plantilla3 = PlantillasCorreo::find(3);
+        
+        //Se actualiza los campos necesarios
+        $plantilla3->informacion_plantilla = $request->input('informacion_plantilla');
+        
+        //Se guardan los cambios en la base de datos
+        $plantilla3->save();
+        
+        //Se retorna a la ruta indicada d la plantilla
+        return redirect(route('email.second_email'));
+
     }
 
     /**

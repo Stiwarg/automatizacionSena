@@ -45,19 +45,19 @@
         </a>
         <ul class="nav nav-treeview">
           <li class="nav-item">
-            <a href="{{ route('mostrarCorreo.show', ['id' => $id ]) }}" class="nav-link">
+            <a href="{{ route('emailone.index') }}" class="nav-link">
               <i class="far fa-circle nav-icon"></i>
               <p>Primer Correo</p>
             </a>
           </li>
           <li class="nav-item">
-            <a href="{{ route('mostrarCorreo.show', ['id' => $id ]) }}" class="nav-link">
+            <a href="{{ route('emailone.secondEmail') }}" class="nav-link">
               <i class="far fa-circle nav-icon"></i>
               <p>Segundo Correo</p>
             </a>
           </li>
           <li class="nav-item">
-            <a href="{{ route('mostrarCorreo.show', ['id' => $id ]) }}" class="nav-link">
+            <a href="{{ route('emailone.thirdEmail') }}" class="nav-link">
               <i class="far fa-circle nav-icon"></i>
               <p>Tercer Correo</p>
             </a>
