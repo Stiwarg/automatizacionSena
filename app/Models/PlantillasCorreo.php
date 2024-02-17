@@ -8,4 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class PlantillasCorreo extends Model
 {
     use HasFactory;
+    protected $table = 'plantillascorreos';
+
+
 }

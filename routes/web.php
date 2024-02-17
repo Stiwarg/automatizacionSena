@@ -9,7 +9,6 @@ use App\Http\Controllers\EmailOneController;
 //use App\Http\Controllers\EmailTwoController;
 //use App\Http\Controllers\EmailThreeController;
 use App\Http\Controllers\HomeController;
-use APP\Http\Controllers\PlantillasController;
 
 
 
@@ -40,6 +39,6 @@ Route::resource('primer correo',EmailOneController::class)->names('emailone');
 Route::get('/primer-correo', [EmailOneController::class, 'index'])->name('emailone.index');
 Route::get('/segundo-correo', [EmailOneController::class, 'secondEmail'])->name('emailone.secondEmail');
 Route::get('/tercer-correo', [EmailOneController::class, 'thirdEmail'])->name('emailone.thirdEmail');
-Route::post('/actualizacion-primer-correo/{id}', [EmailOneController::class, 'update'])->name('emailone.update');
-Route::post('/actualizacion-segundo-correo/{id}', [EmailOneController::class, 'updateSecondEmail'])->name('emailtwo.update');
-Route::post('/actualizacion-tercer-correo/{id}', [EmailOneController::class, 'updateThirdEmail'])->name('emailthird.update');
+Route::put('/actualizacion-primer-correo/{id}', [EmailOneController::class, 'update'])->name('emailone.update');
+Route::put('/actualizacion-segundo-correo/{id}', [EmailOneController::class, 'updateSecondEmail'])->name('emailtwo.update');
+Route::put('/actualizacion-tercer-correo/{id}', [EmailOneController::class, 'updateThirdEmail'])->name('emailthird.update');
