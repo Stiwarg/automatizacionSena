@@ -19,9 +19,11 @@
           <td>{{$contra->nombre}}</td>
           <td>{{$contra->correo}}</td>
           <td>{{$contra->telefono}}</td>
-          <td>
+          <td class="project-actions text-right">
               <input type="hidden" name="" value="{{$contra->id}}">
               <span class="btn btn-primary btn-sm mr3">Enviar Correo</span>
+              <a class="btn btn-primary btn-sm" href="#">activar</a>
+              <a class="btn btn-danger btn-sm" href="#">Desactivar</a>
           </td>
         </tr>
         @endforeach
