@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\PlantillasCorreo;
+use App\Models\plantillacorreo;
 
 class EmailOneController extends Controller
 {
@@ -12,8 +12,8 @@ class EmailOneController extends Controller
      */
     public function index()
     {
-        $plantilla1 = PlantillasCorreo::select('pc.id', 'pc.informacion_plantilla')
-                        ->from('plantillascorreos as pc')
+        $plantilla1 = plantillacorreo::select('pc.id', 'pc.informacion')
+                        ->from('plantilla_correos as pc')
                         ->where('pc.id', 1)
                         ->first();
 
@@ -22,8 +22,8 @@ class EmailOneController extends Controller
 
     public function secondEmail()
     {
-        $plantilla2 = PlantillasCorreo::select('pc.id', 'pc.informacion_plantilla')
-                        ->from('plantillascorreos as pc')
+        $plantilla2 = plantillacorreo::select('pc.id', 'pc.informacion')
+                        ->from('plantilla_correos as pc')
                         ->where('pc.id', 2)
                         ->first();
 
@@ -32,8 +32,8 @@ class EmailOneController extends Controller
 
     public function thirdEmail()
     {
-        $plantilla3 = PlantillasCorreo::select('pc.id', 'pc.informacion_plantilla')
-                        ->from('plantillascorreos as pc')
+        $plantilla3 = plantillacorreo::select('pc.id', 'pc.informacion')
+                        ->from('plantilla_correos as pc')
                         ->where('pc.id', 3)
                         ->first();
 
@@ -47,10 +47,10 @@ class EmailOneController extends Controller
     public function update(Request $request)
     {
         //Se obtine el identificador de la primera plantilla
-        $plantilla1 = PlantillasCorreo::find(1);
+        $plantilla1 = plantillacorreo::find(1);
 
         //Se actualiza los campos necesarios
-        $plantilla1->informacion_plantilla = $request->input('informacion_plantilla');
+        $plantilla1->informacion_plantilla = $request->input('informacion');
 
         //Se guardan los cambios en la base de datos
         $plantilla1->save();
@@ -64,10 +64,10 @@ class EmailOneController extends Controller
     public function updateSecondEmail(Request $request)
     {
         //Se obtine el identificador de la segunda plantilla
-        $plantilla2 = PlantillasCorreo::find(2);
+        $plantilla2 = plantillacorreo::find(2);
 
         //Se actualiza los campos necesarios
-        $plantilla2->informacion_plantilla = $request->input('informacion_plantilla');
+        $plantilla2->informacion_plantilla = $request->input('informacion');
 
         //Se guardan los cambios en la base de datos
         $plantilla2->save();
@@ -79,10 +79,10 @@ class EmailOneController extends Controller
     public function updateThirdEmail(Request $request)
     {
         //Se obtine el identificador de la tercera plantilla
-        $plantilla3 = PlantillasCorreo::find(3);
+        $plantilla3 = plantillacorreo::find(3);
 
         //Se actualiza los campos necesarios
-        $plantilla3->informacion_plantilla = $request->input('informacion_plantilla');
+        $plantilla3->informacion_plantilla = $request->input('informacion');
 
         //Se guardan los cambios en la base de datos
         $plantilla3->save();
