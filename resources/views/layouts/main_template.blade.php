@@ -203,8 +203,8 @@
           </div><!-- /.col -->
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
-              {{-- <li class="breadcrumb-item"><a href="#">Home</a></li> --}}
-              {{-- <li class="breadcrumb-item active">Dashboard v2</li> --}}
+              {{-- <li class="breadcrumb-item"><a href="#">Home</a></li>
+              <li class="breadcrumb-item active">Dashboard v2</li> --}}
             </ol>
           </div><!-- /.col -->
         </div><!-- /.row -->
@@ -260,7 +260,7 @@
 <script src="{{asset('js/Chart.min.js')}}"></script>
 
 <!-- AdminLTE for demo purposes Ya esta -->
-<script src="{{asset('js/demo.js')}}"></script>
+{{-- <script src="{{asset('js/demo.js')}}"></script> --}}
 
 <!-- AdminLTE dashboard demo (This is only for demo purposes) Ya esta -->
 <script src="{{asset('js/dashboard2.js')}}"></script>

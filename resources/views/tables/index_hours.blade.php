@@ -3,6 +3,8 @@
 
 <h1>Organizacion De Fechas</h1>
 <table class="table table-bordered" id="Table">
+    <h3>VACACIONES Y CONTRATACIONES</h3>
+
     <div class="row">
         <div class="col-sm-6">
             <!-- Fecha de Inicio -->
