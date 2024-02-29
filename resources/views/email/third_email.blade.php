@@ -19,9 +19,6 @@
                            <input type="submit" value="Enviar Correo" class="btn btn-primary btn-lg mr6">
                         </form>
                 </div>
-                <div class="card-footer">
-                    Visit <a href="https://github.com/summernote/summernote/">Summernote</a> documentation for more examples and information about the plugin.
-                </div>
             </div>
         </div>
     </div>

@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\Juicio;
+use App\Models\aprendice;
 
 class ApprenticeController extends Controller
 {
@@ -12,7 +12,7 @@ class ApprenticeController extends Controller
      */
     public function index()
     {
-        $aprendices = Juicio::all();
+        $aprendices = aprendice::all();
         return view('tables.index_apprentice', compact('aprendices'));
     }
 
