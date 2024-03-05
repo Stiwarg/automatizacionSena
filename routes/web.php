@@ -36,6 +36,10 @@ Route::resource('contratistas',ContractorController::class)->names('contractor')
 Route::resource('aprendices',ApprenticeController::class)->names('apprentice');
 Route::resource('horas',HoursController::class)->names('hours');
 Route::resource('primer correo',EmailOneController::class)->names('emailone');
+Route::resource('contractors', 'ContractorController');
+// Route::get('contractors/{contractor}/edit', 'ContractorController@edit')->name('contractors.edit');
+Route::get('tables/{id}/edit', 'ContractorController@edit')->name('tables.index_edit');
+
 //Route::resource('segundo correo',EmailTwoController::class)->names('emailtwo');
 //Route::resource('tercer correo',EmailThreeController::class)->names('emailthree');
 Route::get('/primer-correo', [EmailOneController::class, 'index'])->name('emailone.index');

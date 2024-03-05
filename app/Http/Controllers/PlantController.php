@@ -13,7 +13,9 @@ class PlantController extends Controller
      */
     public function index()
     {
-        $instructores = Instructore::all();
+        // $instructores = Instructore::all();
+        $instructores = instructore::where('tipo_contratos_id',2)->get();
+
         return view('tables.index_plant', compact('instructores'));
     }
 

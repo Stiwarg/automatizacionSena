@@ -12,7 +12,7 @@ class ContractorController extends Controller
      */
     public function index()
     {
-        $contractors = instructore::all();
+        $contractors = instructore::where('tipo_contratos_id',1)->get();
         return view('tables.index_contractor', compact('contractors'));
     }
 
@@ -46,6 +46,8 @@ class ContractorController extends Controller
     public function edit(string $id)
     {
         //
+        $contractor = instructore::findOrFail($id);
+        return view('tables.index_edit', compact('contractor'));
     }
 
     /**
@@ -54,6 +56,25 @@ class ContractorController extends Controller
     public function update(Request $request, string $id)
     {
         //
+        $request->validate([
+            'nombre' => 'required|string|max:255',
+            'correo' => 'required|email|max:255',
+            'telefono' => 'required|string|max:255',
+        ]);
+    
+        // Obtener el contratista a actualizar
+        $contractor = instructore::findOrFail($id);
+    
+        // Actualizar los atributos del contratista
+        $contractor->nombre = $request->nombre;
+        $contractor->correo = $request->correo;
+        $contractor->telefono = $request->telefono;
+    
+        // Guardar los cambios en la base de datos
+        $contractor->save();
+    
+        // Redirigir de vuelta a la lista de contratistas con un mensaje de éxito
+        return redirect()->route('contractors.index')->with('success', 'Contratista actualizado correctamente');
     }
 
     /**
