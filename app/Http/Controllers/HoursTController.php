@@ -3,12 +3,15 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+
 use App\Models\Instructore;
-use App\Models\Hour;
+use App\Models\HourT;
 
-
-class HoursController extends Controller
+class HoursTController extends Controller
 {
+    //
+
+
     /**
      * Display a listing of the resource.
      */
@@ -17,7 +20,7 @@ class HoursController extends Controller
         // $instructores = Instructore::all();
         // return view('tables.index_plant', compact('instructores'));
 
-        $horas = Hour::all();
+        $horas = HourT::all();
         return view('tables.index_hours', compact('horas'));
         
     }
@@ -39,12 +42,14 @@ class HoursController extends Controller
         $request->validate([
             'fecha_inicio' => 'required|date',
             'fecha_fin' => 'required|date',
+            'trimestres_id' => 'required|int',
         ]);
     
         // Crear una nueva instancia de Hour (Vacaciones) y asignar los valores
-        $hour = new Hour();
+        $hour = new HourT();
         $hour->fecha_inicio = $request->input('fecha_inicio');
         $hour->fecha_fin = $request->input('fecha_fin');
+        $hour->trimestres_id = $request->input('trimestres_id');
     
         // Guardar el objeto en la base de datos
         $hour->save();

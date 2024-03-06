@@ -6,7 +6,7 @@
     <div class="col-lg-8">
         <div class="card card-primary">
             <div class="card-header">
-                <h3 class="card-title">Enviar Correo Electrónico</h3>
+                <h3 class="card-title">Enviar Pirmer Correo Electrónico</h3>
             </div>
             <!-- /.card-header -->
             <div class="card-body">

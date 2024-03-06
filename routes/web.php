@@ -46,6 +46,12 @@ Route::get('tables/{id}/edit', 'ContractorController@edit')->name('tables.index_
 Route::post('/update-contractor-status', 'ContractorController@updateStatus')->name('update-contractor-status');
 
 
+// PARA GUARDAR LAS FECHAS
+Route::post('/hours', 'App\Http\Controllers\HoursController@store')->name('hours.store');
+Route::post('/hours', 'App\Http\Controllers\HoursTController@store')->name('hoursT.store');
+
+
+
 
 //Route::resource('segundo correo',EmailTwoController::class)->names('emailtwo');
 //Route::resource('tercer correo',EmailThreeController::class)->names('emailthree');
