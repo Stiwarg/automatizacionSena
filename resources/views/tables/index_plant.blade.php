@@ -9,6 +9,7 @@
         <th scope="col">Nombre</th>
         <th scope="col">Correo</th>
         <th scope="col">Telefono</th>
+        <th scope="col">Habilitación</th>
         <th scope="col">Enviar Reporte</th>
       </tr>
     </thead>
@@ -19,17 +20,22 @@
           <td>{{$plant->nombre}}</td>
           <td>{{$plant->correo}}</td>
           <td>{{$plant->telefono}}</td>
-          <td class="project-actions text-right">
-              <input type="hidden" name="" value="{{$plant->id}}">
-              <a class="btn btn-primary btn-sm" href="{{ route('tables.index_edit', $plant->id) }}">Editar</a>
-              <span class="btn btn-primary btn-sm mr3">Enviar Correo</span>
-              <a class="btn btn-primary btn-sm" href="#">activar</a>
-              <a class="btn btn-danger btn-sm" href="#">Desactivar</a>
+          <td>
+            @if ($plant->habilitacion == 0)
+            Activo
+            @elseif ($plant->habilitacion == 1)
+                Inactivo
+            @endif
           </td>
+          <td class="project-actions text-right">
+            <input type="hidden" name="" value="{{$plant->id}}">
+            <a class="btn btn-primary btn-sm" href="{{ route('tables.index_edit', $plant->id) }}">Editar</a>
+            <span class="btn btn-primary btn-sm mr3">Enviar Correo</span>
+        </td>
         </tr>
       @endforeach
     </tbody>
-  </table>
+</table>
   
 @endsection
 

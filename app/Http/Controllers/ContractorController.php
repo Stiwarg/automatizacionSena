@@ -57,24 +57,30 @@ class ContractorController extends Controller
     {
         //
         $request->validate([
+            'identificacion' => 'required|string|max:255',
             'nombre' => 'required|string|max:255',
             'correo' => 'required|email|max:255',
             'telefono' => 'required|string|max:255',
+            'habilitacion' => 'required|boolean|max:2',
         ]);
     
         // Obtener el contratista a actualizar
         $contractor = instructore::findOrFail($id);
     
         // Actualizar los atributos del contratista
+
+        $contractor->identificacion = $request->identificacion;
         $contractor->nombre = $request->nombre;
         $contractor->correo = $request->correo;
         $contractor->telefono = $request->telefono;
+        $contractor->habilitacion = $request->habilitacion;
     
         // Guardar los cambios en la base de datos
         $contractor->save();
     
         // Redirigir de vuelta a la lista de contratistas con un mensaje de éxito
-        return redirect()->route('contractors.index')->with('success', 'Contratista actualizado correctamente');
+        return redirect($request->input('previous_url'));
+
     }
 
     /**
@@ -84,4 +90,18 @@ class ContractorController extends Controller
     {
         //
     }
+    // public function updateStatus(Request $request)
+    // {
+    //     $contractorId = $request->input('contractor_id');
+    //     $newStatus = $request->input('new_status');
+
+    //     $contractor = instructore::find($contractorId);
+    //     if ($contractor) {
+    //         $contractor->habilitacion = $newStatus;
+    //         $contractor->save();
+    //         return response()->json(['success' => true]);
+    //     } else {
+    //         return response()->json(['success' => false, 'message' => 'Contratista no encontrado'], 404);
+    //     }
+    // }
 }

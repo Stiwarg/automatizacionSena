@@ -1,37 +1,51 @@
 @extends('layouts.main_template')
 
 @section('contenido')
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
-    <link rel="stylesheet" href="../../plugins/summernote/summernote-bs4.min.css">
 
-
-    <div class="row justify-content-center">
-        <div class="col-lg-8">
-            <div class="card card-outline card-info">
-                <div class="card-header">
-                    <h2 class="card-title">Formulario del Primer Correo Electrónico</h2>
-                </div>
-                <!-- /.card-header -->
-                <div class="card-body">
-                    <form action="{{ route('emailone.update', ['id' =>  $plantilla1->id]) }}" method="POST">
-                        @csrf
-                        @method('PUT')
-                        <div class="form-group">
-                            <textarea id="compose-textarea" name="informacion_plantilla" class="form-control" style="height: 300px;">{{ $plantilla1->informacion_plantilla }}</textarea>
-                        </div>
-                        <div class="form-group">
-                            <button type="submit" class="btn btn-primary">Enviar Correo</button>
-                        </div>
-                    </form>
-                </div>
-                <!-- /.card-body -->
+<div class="row justify-content-center">
+    <div class="col-lg-8">
+        <div class="card card-primary">
+            <div class="card-header">
+                <h3 class="card-title">Enviar Correo Electrónico</h3>
             </div>
-            <!-- /.card -->
+            <!-- /.card-header -->
+            <div class="card-body">
+                <form action="{{ route('emailone.update', ['id' =>  $plantilla1->id]) }}" method="POST">
+                    @csrf
+                    @method('PUT')
+                    <div class="form-group">
+                        <label for="correo-body">Contenido del Correo Electrónico</label>
+                        <textarea id="correo-body" name="informacion_plantilla" class="form-control" rows="10">{{ $plantilla1->informacion_plantilla }}</textarea>
+                    </div>
+                    <div class="form-group">
+                        <button type="submit" class="btn btn-primary">Enviar Correo</button>
+                    </div>
+                </form>
+            </div>
+            <!-- /.card-body -->
         </div>
-        <!-- /.col -->
+        <!-- /.card -->
     </div>
-    <!-- /.row -->
+    <!-- /.col -->
+</div>
+<!-- /.row -->
+
 @endsection
+
+@section('js')
+    <script>
+        $(function () {
+            // Inicializar el editor de texto enriquecido Summernote sin toolbar
+            $('#correo-body').summernote({
+                height: 300,
+                placeholder: 'Escribe aquí el contenido del correo electrónico...',
+                tabsize: 2,
+                toolbar: [],
+            });
+        });
+    </script>
+@endsection
+
 
 @section('js')
     <script>

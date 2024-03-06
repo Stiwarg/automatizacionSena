@@ -36,9 +36,16 @@ Route::resource('contratistas',ContractorController::class)->names('contractor')
 Route::resource('aprendices',ApprenticeController::class)->names('apprentice');
 Route::resource('horas',HoursController::class)->names('hours');
 Route::resource('primer correo',EmailOneController::class)->names('emailone');
+
+// RUTA PARA EL EDIT
 Route::resource('contractors', 'ContractorController');
-// Route::get('contractors/{contractor}/edit', 'ContractorController@edit')->name('contractors.edit');
 Route::get('tables/{id}/edit', 'ContractorController@edit')->name('tables.index_edit');
+
+
+// BOTON DE ACTIVAR Y DESACTIVAR
+Route::post('/update-contractor-status', 'ContractorController@updateStatus')->name('update-contractor-status');
+
+
 
 //Route::resource('segundo correo',EmailTwoController::class)->names('emailtwo');
 //Route::resource('tercer correo',EmailThreeController::class)->names('emailthree');

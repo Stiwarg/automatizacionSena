@@ -9,6 +9,7 @@
         <th scope="col">Nombre</th>
         <th scope="col">Correo</th>
         <th scope="col">Telefono</th>
+        <th scope="col">Habilitación</th>
         <th scope="col">Enviar Reporte</th>
       </tr>
     </thead>
@@ -19,12 +20,17 @@
           <td>{{$contra->nombre}}</td>
           <td>{{$contra->correo}}</td>
           <td>{{$contra->telefono}}</td>
+          <td>
+            @if ($contra->habilitacion == 0)
+            Activo
+            @elseif ($contra->habilitacion == 1)
+                Inactivo
+            @endif
+          </td>
           <td class="project-actions text-right">
               <input type="hidden" name="" value="{{$contra->id}}">
               <a class="btn btn-primary btn-sm" href="{{ route('tables.index_edit', $contra->id) }}">Editar</a>
               <span class="btn btn-primary btn-sm mr3">Enviar Correo</span>
-              <a class="btn btn-primary btn-sm" href="#">activar</a>
-              <a class="btn btn-danger btn-sm" href="#">Desactivar</a>
           </td>
         </tr>
         @endforeach
@@ -38,3 +44,4 @@
       $(document).ready(function () { $('#Table').DataTable(); });
     </script>
 @endsection
+
