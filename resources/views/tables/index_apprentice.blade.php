@@ -9,6 +9,9 @@
         <th scope="col">Nombre</th>
         <th scope="col">Apellido</th>
         <th scope="col">Estado Formacion</th>
+        <th scope="col">Competencia</th>
+        <th scope="col">Resultado</th>
+        <th scope="col">Juicio Evaluativo</th>
       </tr>
     </thead>
     <tbody>
@@ -18,6 +21,9 @@
                 <td>{{$aprendiz->nombre_aprendiz}}</td>
                 <td>{{$aprendiz->apellidos_aprendiz}}</td>
                 <td>{{$aprendiz->estado_formacion}}</td>
+                <td>{{$aprendiz->competencias}}</td>
+                <td>{{$aprendiz->resultado}}</td>
+                <td>{{$aprendiz->juicio_evaluativo}}</td>
             </tr>
         @endforeach
     </tbody>

@@ -13,6 +13,8 @@ class ApprenticeController extends Controller
     public function index()
     {
         $aprendices = aprendice::all();
+        $aprendices = aprendice::where('estado_formacion', 'EN FORMACION')->get();
+
         return view('tables.index_apprentice', compact('aprendices'));
     }
 
