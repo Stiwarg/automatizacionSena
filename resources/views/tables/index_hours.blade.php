@@ -1,10 +1,21 @@
 @extends('layouts.main_template')
 @section('contenido')
-
+<style>
+    h1 {
+      text-align: center;
+      font-weight: bold;
+    }
+    h3{
+        font-weight: bold;
+    }
+    th {
+    text-align: center;
+    }
+  </style>
 <h1>Organizacion De Fechas</h1>
 
     <table class="table table-bordered" id="Table">
-        <h3>VACACIONES Y CONTRATACIONES</h3>
+        <h3>Vacaciones y fin de contrataciones</h3>
 
         <form method="POST" action="{{ route('hours.store') }}">
             @csrf
@@ -40,7 +51,7 @@
                 <!-- Trimestre -->
                 <div class="form-group">
                     <label>
-                        <h3>TRIMESTRES</h3>
+                        <h3>Fecha duración trimestral</h3>
                     </label>
                     <select class="form-control" name="trimestres_id">
                         <option value="1">Trimestre 1</option>

@@ -1,7 +1,15 @@
 @extends('layouts.main_template')
 @section('contenido')
-
-<h1>Tabla de planta</h1>
+<style>
+  h1 {
+    text-align: center;
+    font-weight: bold;
+  }
+  th {
+    text-align: center;
+  }
+</style>
+<h1>Instructores de  Planta</h1>
 <table class="table table-bordered" id="Table">
     <thead>
       <tr>

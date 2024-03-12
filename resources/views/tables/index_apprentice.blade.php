@@ -1,7 +1,15 @@
 @extends('layouts.main_template')
 @section('contenido')
-
-<h1>Tabla de aprendices</h1>
+<style>
+  h1 {
+    text-align: center;
+    font-weight: bold;
+  }
+  th {
+    text-align: center;
+  }
+</style>
+<h1>Aprendices Juicio Evaluativo</h1>
 <table class="table table-bordered" id="Table">
     <thead>
       <tr>
