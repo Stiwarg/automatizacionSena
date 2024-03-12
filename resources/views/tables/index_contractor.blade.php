@@ -31,7 +31,7 @@
             <td class="project-actions text-right">
                 <input type="hidden" name="" value="{{$contra->id}}">
                 <a class="btn btn-primary btn-sm" href="{{ route('tables.index_edit', $contra->id) }}">Editar</a>
-                <span class="btn btn-primary btn-sm mr3">Enviar Correo</span>
+                <span class="btn btn-primary btn-sm mr3">Reenviar Correo</span>
             </td>
           </tr>
         @endforeach
