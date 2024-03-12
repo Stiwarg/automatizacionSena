@@ -12,8 +12,14 @@ class ContractorController extends Controller
      */
     public function index()
     {
-        $contractors = instructore::where('tipo_contratos_id',1)->get();
-        $contractors = instructore::where('habilitacion',0)->get();
+        // $contractors = instructore::where('tipo_contratos_id',1)->get();
+        // $contractors = instructore::where('habilitacion',0)->get();
+
+        $contractors = instructore::where('tipo_contratos_id', 1)
+                                ->Where('habilitacion', 0)
+                                ->get();
+                           
+
         return view('tables.index_contractor', compact('contractors'));
     }
 
