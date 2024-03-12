@@ -39,12 +39,6 @@
               <p>Organizacion Fechas </p>
             </a>
           </li>
-          <li class="nav-item">
-            <a href="{{ route('plant.index') }}" class="nav-link">
-              <i class="far fa-circle nav-icon"></i>
-              <p>Correo</p>
-            </a>
-          </li>
         </ul>
       </li>
       <li class="nav-item">
