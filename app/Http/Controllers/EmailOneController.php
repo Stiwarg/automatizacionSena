@@ -44,51 +44,68 @@ class EmailOneController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request)
+    public function update(Request $request, $id)
     {
-        //Se obtine el identificador de la primera plantilla
-        $plantilla1 = plantillacorreo::find(1);
-
-        //Se actualiza los campos necesarios
-        $plantilla1->informacion_plantilla = $request->input('informacion');
-
-        //Se guardan los cambios en la base de datos
+        // Obtener la plantilla de correo por su ID
+        $plantilla1 = PlantillaCorreo::find($id);
+    
+        // Validar los datos recibidos del formulario
+        $request->validate([
+            'informacion' => 'required|string', // Ajusta las reglas de validación según sea necesario
+        ]);
+    
+        // Actualizar la información de la plantilla con los datos del formulario
+        $plantilla1->informacion = $request->input('informacion');
+    
+        // Guardar los cambios en la base de datos
         $plantilla1->save();
-
-        //Se retorna a la ruta indicada d la plantilla
-        return redirect(route('emailone.index'));
-
+    
+        // Redirigir de vuelta a la vista de edición con un mensaje de éxito
+        return redirect()->route('emailone.index')->with('success', 'La plantilla de correo se actualizó correctamente.');
     }
+    
 
 
-    public function updateSecondEmail(Request $request)
+    public function updateSecondEmail(Request $request, $id)
     {
         //Se obtine el identificador de la segunda plantilla
-        $plantilla2 = plantillacorreo::find(2);
+        $plantilla2 = plantillaCorreo::find($id);
+
+
+        $request->validate([
+            'informacion' => 'required|string',
+        ]);
 
         //Se actualiza los campos necesarios
-        $plantilla2->informacion_plantilla = $request->input('informacion');
+        $plantilla2->informacion = $request->input('informacion');
 
         //Se guardan los cambios en la base de datos
         $plantilla2->save();
 
         //Se retorna a la ruta indicada d la plantilla
-        return redirect(route('emailone.secondEmail'));
+        return redirect()->route('emailone.secondEmail')->with('success', 'La plantilla de correo se actulizo correctamente.');
     }
 
-    public function updateThirdEmail(Request $request)
+
+
+    public function updateThirdEmail(Request $request, $id)
     {
         //Se obtine el identificador de la tercera plantilla
-        $plantilla3 = plantillacorreo::find(3);
+        $plantilla3 = plantillaCorreo::find($id);
+
+
+        $request->validate([
+            'informacion' => 'required|string',
+        ]);
 
         //Se actualiza los campos necesarios
-        $plantilla3->informacion_plantilla = $request->input('informacion');
+        $plantilla3->informacion = $request->input('informacion');
 
         //Se guardan los cambios en la base de datos
         $plantilla3->save();
 
         //Se retorna a la ruta indicada d la plantilla
-        return redirect(route('emailone.thirdEmail'));
+        return redirect()->route('emailone.thirdEmail')->with('success', 'La plantilla de correo se actualizó correctamente.');
 
     }
 

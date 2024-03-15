@@ -10,17 +10,19 @@
             </div>
             <!-- /.card-header -->
             <div class="card-body">
-                <form action="{{ route('emailone.update', ['id' =>  $plantilla1->id]) }}" method="POST">
+                
+                <form action="{{ route('emailone.update', ['id' => $plantilla1->id]) }}" method="POST">
                     @csrf
                     @method('PUT')
                     <div class="form-group">
                         <label for="correo-body">Contenido del Correo Electrónico</label>
-                        <textarea id="correo-body" name="informacion_plantilla" class="form-control" rows="10">{{ $plantilla1->informacion_plantilla }}</textarea>
+                        <textarea id="correo-body" name="informacion" class="form-control" rows="10">{{ $plantilla1->informacion }}</textarea>
                     </div>
                     <div class="form-group">
-                        <button type="submit" class="btn btn-primary">Enviar Correo</button>
+                        <button type="submit" class="btn btn-primary">Actualizar</button>
                     </div>
                 </form>
+                
             </div>
             <!-- /.card-body -->
         </div>

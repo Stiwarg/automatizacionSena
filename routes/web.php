@@ -51,13 +51,25 @@ Route::post('/hours', 'App\Http\Controllers\HoursController@store')->name('hours
 Route::post('/hours', 'App\Http\Controllers\HoursTController@store')->name('hoursT.store');
 
 
+Route::put('/emailone/update', 'App\Http\Controllers\EmailOneController@update')->name('emailone.update');
+Route::put('/emailone/updateSecondEmail', 'App\Http\Controllers\EmailOneController@updateSecondEmail')->name('emailone.updateSecondEmail');
+Route::put('/emailone/updateThirdEmail', 'App\Http\Controllers\EmailOneController@updateThirdEmail')->name('emailone.updateThirdEmail');
+// Route::put('/emailone/update', 'App\Http\Controllers\EmailOneController@update')->name('emailone.update');
+Route::put('/actualizacion-primer-correo/{id}', 'App\Http\Controllers\EmailOneController@update')->name('emailone.update');
+Route::put('/actualizacion-segundo-correo/{id}', 'App\Http\Controllers\EmailOneController@updateSecondEmail')->name('emailone.updateSecondEmail');
+Route::put('/actualizacion-tercer-correo/{id}', 'App\Http\Controllers\EmailOneController@updateThirdEmail')->name('emailone.updateThirdEmail');
 
 
 //Route::resource('segundo correo',EmailTwoController::class)->names('emailtwo');
 //Route::resource('tercer correo',EmailThreeController::class)->names('emailthree');
+
+
 Route::get('/primer-correo', [EmailOneController::class, 'index'])->name('emailone.index');
 Route::get('/segundo-correo', [EmailOneController::class, 'secondEmail'])->name('emailone.secondEmail');
 Route::get('/tercer-correo', [EmailOneController::class, 'thirdEmail'])->name('emailone.thirdEmail');
-Route::put('/actualizacion-primer-correo/{id}', [EmailOneController::class, 'update'])->name('emailone.update');
-Route::put('/actualizacion-segundo-correo/{id}', [EmailOneController::class, 'updateSecondEmail'])->name('emailtwo.update');
-Route::put('/actualizacion-tercer-correo/{id}', [EmailOneController::class, 'updateThirdEmail'])->name('emailthird.update');
+
+
+
+// Route::put('/actualizacion-primer-correo/{id}', [EmailOneController::class, 'update'])->name('emailone.update');
+// Route::put('/actualizacion-segundo-correo/{id}', [EmailOneController::class, 'updateSecondEmail'])->name('emailtwo.update');
+// Route::put('/actualizacion-tercer-correo/{id}', [EmailOneController::class, 'updateThirdEmail'])->name('emailthird.update');
