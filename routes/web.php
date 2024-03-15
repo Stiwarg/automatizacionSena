@@ -7,8 +7,6 @@ use App\Http\Controllers\ContractorController;
 use App\Http\Controllers\ApprenticeController;
 use App\Http\Controllers\HoursController;
 use App\Http\Controllers\EmailOneController;
-//use App\Http\Controllers\EmailTwoController;
-//use App\Http\Controllers\EmailThreeController;
 use App\Http\Controllers\HomeController;
 
 
@@ -41,29 +39,18 @@ Route::resource('primer correo',EmailOneController::class)->names('emailone');
 Route::resource('contractors', 'ContractorController');
 Route::get('tables/{id}/edit', 'ContractorController@edit')->name('tables.index_edit');
 
-
 // BOTON DE ACTIVAR Y DESACTIVAR
 Route::post('/update-contractor-status', 'ContractorController@updateStatus')->name('update-contractor-status');
-
 
 // PARA GUARDAR LAS FECHAS
 Route::post('/hours', 'App\Http\Controllers\HoursController@store')->name('hours.store');
 Route::post('/hours', 'App\Http\Controllers\HoursTController@store')->name('hoursT.store');
 
 
-Route::put('/emailone/update', 'App\Http\Controllers\EmailOneController@update')->name('emailone.update');
-Route::put('/emailone/updateSecondEmail', 'App\Http\Controllers\EmailOneController@updateSecondEmail')->name('emailone.updateSecondEmail');
-Route::put('/emailone/updateThirdEmail', 'App\Http\Controllers\EmailOneController@updateThirdEmail')->name('emailone.updateThirdEmail');
-// Route::put('/emailone/update', 'App\Http\Controllers\EmailOneController@update')->name('emailone.update');
-Route::put('/actualizacion-primer-correo/{id}', 'App\Http\Controllers\EmailOneController@update')->name('emailone.update');
-Route::put('/actualizacion-segundo-correo/{id}', 'App\Http\Controllers\EmailOneController@updateSecondEmail')->name('emailone.updateSecondEmail');
-Route::put('/actualizacion-tercer-correo/{id}', 'App\Http\Controllers\EmailOneController@updateThirdEmail')->name('emailone.updateThirdEmail');
 
 
 //Route::resource('segundo correo',EmailTwoController::class)->names('emailtwo');
 //Route::resource('tercer correo',EmailThreeController::class)->names('emailthree');
-
-
 Route::get('/primer-correo', [EmailOneController::class, 'index'])->name('emailone.index');
 Route::get('/segundo-correo', [EmailOneController::class, 'secondEmail'])->name('emailone.secondEmail');
 Route::get('/tercer-correo', [EmailOneController::class, 'thirdEmail'])->name('emailone.thirdEmail');
