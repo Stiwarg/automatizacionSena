@@ -10,7 +10,7 @@
             <!-- /.card-header -->
             <div class="card-body">
 
-                <form action="{{ route('emailone.updateThirdEmail', ['id' => $plantilla3->id]) }}" method="POST">
+                <form action="{{ route('emailthird.update', ['id' => $plantilla3->id]) }}" method="POST">
                     @csrf
                     @method('PUT')
                     <div class="form-group">
