@@ -5,22 +5,11 @@ use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\PlantController;
 use App\Http\Controllers\ContractorController;
 use App\Http\Controllers\ApprenticeController;
+use App\Http\Controllers\CreateController;
 use App\Http\Controllers\HoursController;
 use App\Http\Controllers\EmailOneController;
 use App\Http\Controllers\HomeController;
 
-
-
-/*
-|--------------------------------------------------------------------------
-| Web Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider and all of them will
-| be assigned to the "web" middleware group. Make something great!
-|
-*/
 
 Route::get('/', function () {
     return view('welcome');
@@ -33,11 +22,13 @@ Route::resource('planta', PlantController::class)->names('plant');
 Route::resource('contratistas',ContractorController::class)->names('contractor');
 Route::resource('aprendices',ApprenticeController::class)->names('apprentice');
 Route::resource('horas',HoursController::class)->names('hours');
+Route::resource('agregar',CreateController::class)->names('create');
 Route::resource('primer correo',EmailOneController::class)->names('emailone');
 
 // RUTA PARA EL EDIT
 Route::resource('contractors', 'ContractorController');
 Route::get('tables/{id}/edit', 'ContractorController@edit')->name('tables.index_edit');
+
 
 // BOTON DE ACTIVAR Y DESACTIVAR
 Route::post('/update-contractor-status', 'ContractorController@updateStatus')->name('update-contractor-status');
@@ -45,6 +36,10 @@ Route::post('/update-contractor-status', 'ContractorController@updateStatus')->n
 // PARA GUARDAR LAS FECHAS
 Route::post('/hours', 'App\Http\Controllers\HoursController@store')->name('hours.store');
 Route::post('/hours', 'App\Http\Controllers\HoursTController@store')->name('hoursT.store');
+
+//Guardar
+Route::get('/create', 'App\Http\Controllers\CreateController@store')->name('create.store');
+Route::post('/create', 'CreateController@store')->name('create.store');
 
 
 
