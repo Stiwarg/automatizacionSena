@@ -32,6 +32,10 @@
                         <label for="tipo_contratos_id">tipo_contratos_id</label>
                         <input type="text" id="tipo_contratos_id" name="tipo_contratos_id" class="form-control">
                     </div>
+                    <div class="form-group">
+                        <label for="tipo_contratos_id">instructores_area_id</label>
+                        <input type="text" id="tipo_contratos_id" name="tipo_contratos_id" class="form-control">
+                    </div>
                     {{-- <div class="form-group">
                         <label for="identificacion">Identificacion</label>
                         <input type="text" id="identificacion" name="identificacion" class="form-control">
@@ -41,12 +45,13 @@
                         <input type="text" id="identificacion" name="identificacion" class="form-control">
                     </div> --}}
                     <div class="form-group">
-                        <label for="habilitacion">abilitacion</label>
+                        <label for="habilitacion">habilitacion</label>
                         <input type="text" id="habilitacion" name="habilitacion" class="form-control">
                     </div>
                     <div class="form-group">
                         <button type="submit" class="btn btn-primary">Guardar</button>
                     </div>
+                    
                 </form>
             </div>
             <!-- /.card-body -->

@@ -34,6 +34,8 @@ class CreateController extends Controller
             'identificacion' => 'required|string',
             'habilitacion' => 'required|boolean',
             'tipo_contratos_id' => 'required|boolean',
+            'instructores_area_id' => 'required|boolean',
+
 
 
         ]);
@@ -46,6 +48,7 @@ class CreateController extends Controller
         $create->telefono = $request->telefono;
         $create->habilitacion = $request->habilitacion;
         $create->tipo_contratos_id = $request->tipo_contratos_id;
+        $create->instructores_area_id = $request->instructores_area_id;
 
 
 
