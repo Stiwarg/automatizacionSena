@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class create extends Model
 {
     protected $table = 'instructores'; // Nombre de la tabla en la base de datos
-    // protected $fillable = ['nombre', 'correo', 'telefono', 'identificacion', 'habilitacion', 'tipo_contratos_id'];
+    protected $fillable = ['nombre', 'correo', 'telefono', 'identificacion', 'habilitacion', 'tipo_contratos_id','instructores_area_id'];
 
     public $timestamps = false;
 
