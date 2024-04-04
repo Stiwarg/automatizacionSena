@@ -7,6 +7,10 @@ use Illuminate\Database\Eloquent\Model;
 
 class instructore extends Model
 {
+    // protected $table = 'instructores'; // Nombre de la tabla en la base de datos
+    // protected $fillable = ['nombre', 'correo', 'telefono', 'identificacion', 'habilitacion', 'tipo_contratos_id'];
+
+
     public $timestamps = false;
 
     use HasFactory;

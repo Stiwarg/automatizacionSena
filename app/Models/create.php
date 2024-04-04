@@ -7,26 +7,9 @@ use Illuminate\Database\Eloquent\Model;
 
 class create extends Model
 {
-    // protected $table = 'vacaciones'; // Nombre de la tabla en la base de datos
-    // protected $fillable = ['fecha_inicio', 'fecha_fin'];
-
-    
-    // public $timestamps = false;
-
     protected $table = 'instructores'; // Nombre de la tabla en la base de datos
-    protected $fillable = ['nombre', 
-                            'apellidos',
-                            'idendificacion',
-                            'programa',
-                            'supervisor',
-                            'correo',
-                            'telefono',
-                            'celular',
-                            'direccion',
-                            // 'habilitacion' 
-                            ];
+    // protected $fillable = ['nombre', 'correo', 'telefono', 'identificacion', 'habilitacion', 'tipo_contratos_id'];
 
-    
-    public $timestamps = false;
+
     use HasFactory;
 }

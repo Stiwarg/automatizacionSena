@@ -34,12 +34,25 @@ Route::get('tables/{id}/edit', 'ContractorController@edit')->name('tables.index_
 Route::post('/update-contractor-status', 'ContractorController@updateStatus')->name('update-contractor-status');
 
 // PARA GUARDAR LAS FECHAS
-Route::post('/hours', 'App\Http\Controllers\HoursController@store')->name('hours.store');
 Route::post('/hours', 'App\Http\Controllers\HoursTController@store')->name('hoursT.store');
 
-//Guardar
-Route::get('/create', 'App\Http\Controllers\CreateController@store')->name('create.store');
-Route::post('/create', 'CreateController@store')->name('create.store');
+
+Route::post('/create', 'App\Http\Controllers\CreateController@store')->name('Create.store');
+
+
+
+
+
+
+// Usando Route::post para guardar datos
+// Route::post('/contractors', 'App\Http\Controllers\ContractorController@store')->name('contractors.store');
+
+
+
+// Route::post('/create', 'App\Http\Controllers\createController@store')->name('instructores.store');
+
+// Route::post('/instructores', [ContractorController::class, 'store'])->name('instructores.store');
+
 
 
 

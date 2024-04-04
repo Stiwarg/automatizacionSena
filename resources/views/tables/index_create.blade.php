@@ -1,65 +1,60 @@
 @extends('layouts.main_template')
+
 @section('contenido')
 
-<h1>Nuevo Intructor</h1>
-
-<form method="POST" action="{{ route('create.store') }}">
-    @csrf
-    
-    <!-- Agrega un campo oculto para almacenar la URL de origen -->
-    <input type="hidden" name="previous_url" value="{{ URL::previous() }}">
-    
-    
-    <div class="form-group">
-        <label for="nombre">Nombre</label>
-        <input type="text" class="form-control" id="nombre" name="nombre" >
+<div class="row justify-content-center">
+    <div class="col-lg-8">
+        <div class="card card-primary">
+            <div class="card-header">
+                <h3 class="card-title">Agregar Nuevo Instructor</h3>
+            </div>
+            <!-- /.card-header -->
+            <div class="card-body">
+                <form action="{{ route('Create.store') }}" method="POST">
+                    @csrf
+                    <div class="form-group">
+                        <label for="nombre">Nombre</label>
+                        <input type="text" id="nombre" name="nombre" class="form-control">
+                    </div>
+                    <div class="form-group">
+                        <label for="correo">Correo Electrónico</label>
+                        <input type="email" id="correo" name="correo" class="form-control">
+                    </div>
+                    <div class="form-group">
+                        <label for="telefono">Teléfono</label>
+                        <input type="text" id="telefono" name="telefono" class="form-control">
+                    </div>
+                    <div class="form-group">
+                        <label for="identificacion">Identificacion</label>
+                        <input type="text" id="identificacion" name="identificacion" class="form-control">
+                    </div>
+                    <div class="form-group">
+                        <label for="tipo_contratos_id">tipo_contratos_id</label>
+                        <input type="text" id="tipo_contratos_id" name="tipo_contratos_id" class="form-control">
+                    </div>
+                    {{-- <div class="form-group">
+                        <label for="identificacion">Identificacion</label>
+                        <input type="text" id="identificacion" name="identificacion" class="form-control">
+                    </div>
+                    <div class="form-group">
+                        <label for="identificacion">Identificacion</label>
+                        <input type="text" id="identificacion" name="identificacion" class="form-control">
+                    </div> --}}
+                    <div class="form-group">
+                        <label for="habilitacion">abilitacion</label>
+                        <input type="text" id="habilitacion" name="habilitacion" class="form-control">
+                    </div>
+                    <div class="form-group">
+                        <button type="submit" class="btn btn-primary">Guardar</button>
+                    </div>
+                </form>
+            </div>
+            <!-- /.card-body -->
+        </div>
+        <!-- /.card -->
     </div>
-
-    <div class="form-group">
-        <label for="apellido">Apellido</label>
-        <input type="text" class="form-control" id="apellido" name="apellido" >
-    </div>
-
-    <div class="form-group">
-        <label for="identificacion">Identificación</label>
-        <input type="text" class="form-control" id="identificacion" name="identificacion" >
-    </div>
-
-    <div class="form-group">
-        <label for="programa">Programa</label>
-        <input type="text" class="form-control" id="programa" name="programa" >
-    </div>
-    <div class="form-group">
-        <label for="supervisor">Supervisor</label>
-        <input type="text" class="form-control" id="supervisor" name="supervisor" >
-    </div>
-
-    <div class="form-group">
-        <label for="correo">Correo</label>
-        <input type="email" class="form-control" id="correo" name="correo" >
-    </div>
-
-    <div class="form-group">
-        <label for="telefono">Teléfono</label>
-        <input type="text" class="form-control" id="telefono" name="telefono">
-    </div>
-    <div class="form-group">
-        <label for="celular">Celular</label>
-        <input type="text" class="form-control" id="celular" name="celular" >
-    </div>
-    <div class="form-group">
-        <label for="direccion">Direccion</label>
-        <input type="text" class="form-control" id="direccion" name="direccion" >
-    </div>
-    {{-- <div class="form-group">
-        <label for="habilitacion">Estado</label>
-        <select class="form-control" id="habilitacion" name="habilitacion">
-            <option value="0" >Activo</option>
-            <option value="1" >Inactivo</option>
-        </select>
-    </div> --}}
-
-    <button type="submit" class="btn btn-primary">Guardar Cambios</button>
-</form>
+    <!-- /.col -->
+</div>
+<!-- /.row -->
 
 @endsection
