@@ -39,13 +39,13 @@
               <p>Organizacion Fechas </p>
             </a>
           </li>          
-          <li class="nav-item">
-            <a href="{{ route('create.index') }}" class="nav-link">
-              <i class="far fa-circle nav-icon"></i>
-              <p>Agregar Ins</p>
-            </a>
-          </li>
         </ul>
+      </li>
+      <li class="nav-item">
+        <a href="{{ route('create.index') }}" class="nav-link">
+          <i class="nav-icon fas fa-edit"></i>
+          <p>Agregar Instructor</p>
+        </a>
       </li>
       <li class="nav-item">
         <a href="#" class="nav-link">
