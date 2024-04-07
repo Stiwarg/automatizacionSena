@@ -37,7 +37,13 @@ Route::post('/update-contractor-status', 'ContractorController@updateStatus')->n
 Route::post('/hours', 'App\Http\Controllers\HoursTController@store')->name('hoursT.store');
 
 
-Route::post('/create', 'App\Http\Controllers\CreateController@store')->name('Create.store');
+// Route::post('/create', 'App\Http\Controllers\CreateController@store')->name('create.store');
+
+// Route::post('/create', [CreateController::class, 'store'])->name('create.store');
+Route::resource('instructors', CreateController::class);
+Route::get('/create', [CreateController::class, 'index'])->name('create.index');
+Route::post('/create', [CreateController::class, 'store'])->name('create.store');
+
 
 
 

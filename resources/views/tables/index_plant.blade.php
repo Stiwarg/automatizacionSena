@@ -30,10 +30,11 @@
           <td>{{$plant->telefono}}</td>
           <td>
             @if ($plant->habilitacion == 0)
-            Activo
+                Activo
             @elseif ($plant->habilitacion == 1)
                 Inactivo
             @endif
+          
           </td>
           <td class="project-actions text-right">
             <input type="hidden" name="" value="{{$plant->id}}">

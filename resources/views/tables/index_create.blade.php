@@ -10,48 +10,60 @@
             </div>
             <!-- /.card-header -->
             <div class="card-body">
-                <form action="{{ route('Create.store') }}" method="POST">
+                <form action="{{ route('create.store') }}" method="POST">
                     @csrf
                     <div class="form-group">
                         <label for="nombre">Nombre</label>
                         <input type="text" id="nombre" name="nombre" class="form-control">
                     </div>
                     <div class="form-group">
-                        <label for="correo">Correo Electrónico</label>
-                        <input type="email" id="correo" name="correo" class="form-control">
+                        <label for="apellidos">Apellidos</label>
+                        <input type="text" id="apellidos" name="apellidos" class="form-control">
                     </div>
                     <div class="form-group">
-                        <label for="telefono">Teléfono</label>
+                        <label for="identificacion">Identificacion</label>
+                        <input type="text" id="identificacion" name="identificacion" class="form-control">
+                    </div>
+                    <div class="form-group">
+                        <label for="programa">Programa</label>
+                        <input type="text" id="programa" name="programa" class="form-control">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="supervisor">Supervisor</label>
+                        <input type="text" id="supervisor" name="supervisor" class="form-control">
+                    </div>
+                    <div class="form-group">
+                        <label for="correo">Correo</label>
+                        <input type="text" id="correo" name="correo" class="form-control">
+                    </div>
+                    <div class="form-group">
+                        <label for="telefono">Telefono</label>
                         <input type="text" id="telefono" name="telefono" class="form-control">
                     </div>
                     <div class="form-group">
-                        <label for="identificacion">Identificacion</label>
-                        <input type="text" id="identificacion" name="identificacion" class="form-control">
+                        <label for="celular">Celular</label>
+                        <input type="text" id="celular" name="celular" class="form-control">
                     </div>
                     <div class="form-group">
-                        <label for="tipo_contratos_id">tipo_contratos_id</label>
-                        <input type="text" id="tipo_contratos_id" name="tipo_contratos_id" class="form-control">
+                        <label for="direccion">Direccion</label>
+                        <input type="text" id="direccion" name="direccion" class="form-control">
                     </div>
                     <div class="form-group">
-                        <label for="tipo_contratos_id">instructores_area_id</label>
-                        <input type="text" id="tipo_contratos_id" name="tipo_contratos_id" class="form-control">
-                    </div>
-                    {{-- <div class="form-group">
-                        <label for="identificacion">Identificacion</label>
-                        <input type="text" id="identificacion" name="identificacion" class="form-control">
-                    </div>
-                    <div class="form-group">
-                        <label for="identificacion">Identificacion</label>
-                        <input type="text" id="identificacion" name="identificacion" class="form-control">
-                    </div> --}}
-                    <div class="form-group">
-                        <label for="habilitacion">habilitacion</label>
+                        <label for="habilitacion">Habilitación</label>
                         <input type="text" id="habilitacion" name="habilitacion" class="form-control">
+                    </div>
+                    <div class="form-group">
+                        <label for="tipo_contratos_id">Tipo de Contrato</label>
+                        <input type="text" id="tipo_contratos_id" name="tipo_contratos_id" class="form-control">
+                    </div>
+                    <div class="form-group">
+                        <label for="instructores_area_id">Área de Instructores</label>
+                        <input type="text" id="instructores_area_id" name="instructores_area_id" class="form-control">
                     </div>
                     <div class="form-group">
                         <button type="submit" class="btn btn-primary">Guardar</button>
                     </div>
-                    
                 </form>
             </div>
             <!-- /.card-body -->
