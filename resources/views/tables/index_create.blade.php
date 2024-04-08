@@ -67,7 +67,7 @@
                         <label for="instructores_area_id">Área de Instructores</label>
                         <select id="instructores_area_id" name="instructores_area_id" class="form-control">
                             @foreach($areas as $area)
-                                <option value="{{ $area->id }}">{{ $area->nombre }}</option>
+                                <option value="{{ $area->id }}">{{ $area->nombre }} - {{ $area->area}}</option>
                             @endforeach
                         </select>
                     </div>
