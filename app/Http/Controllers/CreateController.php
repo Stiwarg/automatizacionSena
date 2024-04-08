@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\instructore;
+use App\Models\Area;
 
 
 class CreateController extends Controller
@@ -12,7 +13,9 @@ class CreateController extends Controller
     {
 
         $agregar = instructore::all();
-        return view('tables.index_create', compact('agregar'));
+        $areas = Area::all();
+
+        return view('tables.index_create', compact('agregar', 'areas'));
 
     }
 

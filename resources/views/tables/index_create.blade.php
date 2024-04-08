@@ -65,7 +65,11 @@
                     </div>
                     <div class="form-group">
                         <label for="instructores_area_id">Área de Instructores</label>
-                        <input type="text" id="instructores_area_id" name="instructores_area_id" class="form-control">
+                        <select id="instructores_area_id" name="instructores_area_id" class="form-control">
+                            @foreach($areas as $area)
+                                <option value="{{ $area->id }}">{{ $area->nombre }}</option>
+                            @endforeach
+                        </select>
                     </div>
                     <div class="form-group">
                         <button type="submit" class="btn btn-primary">Guardar</button>
