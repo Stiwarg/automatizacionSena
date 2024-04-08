@@ -32,69 +32,7 @@ class ContractorController extends Controller
      */
     public function store(Request $request)
     {
-                        // $request->validate([
-                //     'nombre' => 'required|string',
-                //     'apellidos' => 'required|string',
-                //     'identificacion' => 'nullable|string',
-                //     'programa' => 'required|string',
-                //     'supervisor' => 'required|string',
-                //     'correo' => 'required|email',
-                //     'telefono' => 'required|string',
-                //     'celular' => 'required|string',
-                //     'direccion' => 'required|string',
-                // ]);
-            
-                // // Crear una nueva instancia del modelo Instructore y asignar los valores
-                // $instructor = new create();
-                // $instructor->nombre = $request->input('nombre');
-                // $instructor->apellidos = $request->input('apellidos');
-                // $instructor->identificacion = $request->input('identificacion');
-                // $instructor->programa = $request->input('programa');
-                // $instructor->supervisor = $request->input('supervisor');
-                // $instructor->correo = $request->input('correo');
-                // $instructor->telefono = $request->input('telefono');
-                // $instructor->celular = $request->input('celular');
-                // $instructor->direccion = $request->input('direccion');
-            
-                // // Guardar el nuevo registro en la base de datos
-                // $instructor->save();
-            
-                // // Redirigir de vuelta a la vista con un mensaje de éxito
-                // return redirect()->route('create.index')->with('success', 'Nuevo registro creado correctamente');
-        // // Validar los datos recibidos del formulario
-        // $request->validate([
-        //     'nombre' => 'required|string|max:255',
-        //     'correo' => 'required|email|max:255',
-        //     'telefono' => 'required|string|max:255',
-        //     'identificacion' => 'required|string|max:255',
-        //     'habilitacion' => 'required|boolean|max:2',
-        //     'tipo_contratos_id' => 'required|boolean|max:2',
 
-
-        // ]);
-    
-        // // Crear un nuevo contratista con los datos proporcionados
-        // $contractor = new instructore();
-        // $contractor->nombre = $request->nombre;
-        // // $contractor->apellidos = $request->apellidos;
-        // $contractor->identificacion = $request->identificacion;
-        // // $contractor->programa = $request->programa;
-        // // $contractor->supervisor = $request->supervisor;
-        // $contractor->correo = $request->correo;
-        // $contractor->telefono = $request->telefono;
-        // // $contractor->celular = $request->celular;
-        // // $contractor->direccion = $request->direccion;
-        // $contractor->habilitacion = $request->habilitacion;
-        // $contractor->tipo_contratos_id = $request->tipo_contratos_id;
-
-
-
-    
-        // // Guardar el nuevo contratista en la base de datos
-        // $contractor->save();
-    
-        // // Redirigir de vuelta a la lista de contratistas con un mensaje de éxito
-        // return redirect($request->input('previous_url'))->with('success', '¡Contratista creado correctamente!');
     }
     
 

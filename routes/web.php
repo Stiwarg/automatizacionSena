@@ -24,6 +24,8 @@ Route::resource('aprendices',ApprenticeController::class)->names('apprentice');
 Route::resource('horas',HoursController::class)->names('hours');
 Route::resource('agregar',CreateController::class)->names('create');
 Route::resource('primer correo',EmailOneController::class)->names('emailone');
+Route::resource('instructors', CreateController::class);
+
 
 // RUTA PARA EL EDIT
 Route::resource('contractors', 'ContractorController');
@@ -36,35 +38,9 @@ Route::post('/update-contractor-status', 'ContractorController@updateStatus')->n
 // PARA GUARDAR LAS FECHAS
 Route::post('/hours', 'App\Http\Controllers\HoursTController@store')->name('hoursT.store');
 
-
-// Route::post('/create', 'App\Http\Controllers\CreateController@store')->name('create.store');
-
-// Route::post('/create', [CreateController::class, 'store'])->name('create.store');
-Route::resource('instructors', CreateController::class);
 Route::get('/create', [CreateController::class, 'index'])->name('create.index');
 Route::post('/create', [CreateController::class, 'store'])->name('create.store');
 
-
-
-
-
-
-
-// Usando Route::post para guardar datos
-// Route::post('/contractors', 'App\Http\Controllers\ContractorController@store')->name('contractors.store');
-
-
-
-// Route::post('/create', 'App\Http\Controllers\createController@store')->name('instructores.store');
-
-// Route::post('/instructores', [ContractorController::class, 'store'])->name('instructores.store');
-
-
-
-
-
-//Route::resource('segundo correo',EmailTwoController::class)->names('emailtwo');
-//Route::resource('tercer correo',EmailThreeController::class)->names('emailthree');
 Route::get('/primer-correo', [EmailOneController::class, 'index'])->name('emailone.index');
 Route::get('/segundo-correo', [EmailOneController::class, 'secondEmail'])->name('emailone.secondEmail');
 Route::get('/tercer-correo', [EmailOneController::class, 'thirdEmail'])->name('emailone.thirdEmail');

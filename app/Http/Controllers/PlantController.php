@@ -13,10 +13,6 @@ class PlantController extends Controller
      */
     public function index()
     {
-        // $instructores = Instructore::all();
-        // $instructores = instructore::where('tipo_contratos_id',2)->get();
-        // $instructores = instructore::where('habilitacion',0)->get();
-
         $instructores = instructore::where('tipo_contratos_id', 2)
                                     ->Where('habilitacion', 0)
                                     ->get();

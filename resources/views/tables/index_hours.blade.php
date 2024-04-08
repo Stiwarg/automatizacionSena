@@ -88,9 +88,4 @@
 
 @endsection
 
-{{-- @section('js')
-    <script>
-      $(document).ready(function () { $('#Table').DataTable(); });
-    </script>
-@endsection --}}
 

@@ -51,11 +51,17 @@
                     </div>
                     <div class="form-group">
                         <label for="habilitacion">Habilitación</label>
-                        <input type="text" id="habilitacion" name="habilitacion" class="form-control">
+                        <select class="form-control" id="habilitacion" name="habilitacion">
+                            <option value="0" >Activo</option>
+                            <option value="1" >Inactivo</option>
+                        </select>
                     </div>
                     <div class="form-group">
                         <label for="tipo_contratos_id">Tipo de Contrato</label>
-                        <input type="text" id="tipo_contratos_id" name="tipo_contratos_id" class="form-control">
+                        <select class="form-control" id="tipo_contratos_id" name="tipo_contratos_id">
+                            <option value="1" >Contrastista</option>
+                            <option value="2" >Planta</option>
+                        </select>
                     </div>
                     <div class="form-group">
                         <label for="instructores_area_id">Área de Instructores</label>
