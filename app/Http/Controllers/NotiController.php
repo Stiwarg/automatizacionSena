@@ -12,22 +12,15 @@ class NotiController extends Controller
 
 
 
-    public function __construct()
+    public function index()
     {
         // Obtener todas las notificaciones y pasarlas a todas las vistas
-        $notificaciones = Noti::all();
-        View::share('notificaciones', $notificaciones);
+        // $agregar = instructore::all();
+        // $areas = Area::all();
+        $noti = Noti::all();
+
+        // return view('tables.index_create', compact('noti'));
+        return view('layouts.main_template', compact('noti'));
     }
-    //
-        /**
-     * Display a listing of the resource.
-     */
-    // public function index()
-    // {
-    //     // Obtener todas las notificaciones
-    //     $notifications = Noti::all();
-        
-    //     // Pasar las notificaciones a la vista
-    //     return view('notifications.index', compact('notifications'));
-    // }
+
 }

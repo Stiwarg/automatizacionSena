@@ -7,6 +7,6 @@ use Illuminate\Database\Eloquent\Model;
 
 class Noti extends Model
 {
-    protected $table = 'plantilla_correos';
+    protected $table = 'notificacion_correos';
     use HasFactory;
 }

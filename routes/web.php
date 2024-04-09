@@ -9,6 +9,7 @@ use App\Http\Controllers\CreateController;
 use App\Http\Controllers\HoursController;
 use App\Http\Controllers\EmailOneController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\NotiController;
 
 
 Route::get('/', function () {
@@ -45,6 +46,7 @@ Route::get('/primer-correo', [EmailOneController::class, 'index'])->name('emailo
 Route::get('/segundo-correo', [EmailOneController::class, 'secondEmail'])->name('emailone.secondEmail');
 Route::get('/tercer-correo', [EmailOneController::class, 'thirdEmail'])->name('emailone.thirdEmail');
 
+Route::get('/home', [NotiController::class, 'index'])->name('layouts.main_template');
 
 
 Route::put('/actualizacion-primer-correo/{id}', [EmailOneController::class, 'update'])->name('emailone.update');
