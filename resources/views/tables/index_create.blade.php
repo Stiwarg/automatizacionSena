@@ -8,6 +8,63 @@
             <div class="card-header">
                 <h3 class="card-title">Agregar Nuevo Instructor</h3>
             </div>
+            <div class="card-body">
+                <div class="row">
+                    <!-- Primera columna -->
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <h3 class="card-title">Planilla de Excel de Planta:</h3>
+                            <br>
+                            <a href="{{ route('descargar.excel_planta') }}" class="btn btn-primary">Descargar</a>
+                        </div>
+                    </div>
+                    <!-- Segunda columna -->
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <h3 class="card-title">Planilla de Excel de Contratistas:</h3>
+                            <br>
+                            <a href="{{ route('descargar.excel_contratista') }}" class="btn btn-primary">Descargar</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <!-- Primera columna -->
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <h3 class="card-title">Planilla de Excel de Instructores de Area de Planta:</h3>
+                            <br>
+                            <a href="{{ route('descargar.excel_area_planta') }}" class="btn btn-primary">Descargar</a>
+                        </div>
+                    </div>
+                    <!-- Segunda columna -->
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <h3 class="card-title">Planilla de Excel de Instructores de Area Contratistas:</h3>
+                            <br>
+                            <a href="{{ route('descargar.excel_area_contratista') }}" class="btn btn-primary">Descargar</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <!-- Segunda columna -->
+                    <div class="col-md-7">
+                        <form action="{{ route('subir.archivo.excel') }}" method="post" enctype="multipart/form-data">
+                            @csrf
+                            <div class="form-group mr-2">
+                                <label for="archivo_excel" class="mr-2">Subir Archivo de Excel (Nota: El archivo de excel tiene que tener el mismo nombre con el que fue descargado para poder subirlo)</label>
+                                <input type="file" class="form-control-file" name="archivo_excel">
+                                <button type="submit" class="btn btn-primary mt-2">Subir Excel</button>
+                            </div>
+                        </form>
+                               <!-- Mostrar mensaje de error -->
+                        @if (session('error'))
+                            <div class="alert alert-danger mt-2">
+                                {{ session('error') }}
+                            </div>
+                        @endif
+                    </div>
+                </div>
+            </div>
             <!-- /.card-header -->
             <div class="card-body">
                 <form action="{{ route('create.store') }}" method="POST">

@@ -10,6 +10,8 @@ use App\Http\Controllers\HoursController;
 use App\Http\Controllers\EmailOneController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\NotiController;
+use App\Http\Controllers\ExcelController;
+
 
 
 Route::get('/', function () {
@@ -53,3 +55,12 @@ Route::get('/primer-correo', [NotiController::class, 'index'])->name('layouts.ma
 Route::put('/actualizacion-primer-correo/{id}', [EmailOneController::class, 'update'])->name('emailone.update');
 Route::put('/actualizacion-segundo-correo/{id}', [EmailOneController::class, 'updateSecondEmail'])->name('emailtwo.update');
 Route::put('/actualizacion-tercer-correo/{id}', [EmailOneController::class, 'updateThirdEmail'])->name('emailthird.update');
+
+// EXCEL
+Route::get('/descargar-excel-contratista', 'ExcelController@descargar_contratista')->name('descargar.excel_contratista');
+Route::get('/descargar-excel-planta', 'ExcelController@descargar_planta')->name('descargar.excel_planta');
+Route::get('/descargar-excel-area-planta', 'ExcelController@descargar_area_planta')->name('descargar.excel_area_planta');
+Route::get('/descargar-excel-area-contratista', 'ExcelController@descargar_area_contratista')->name('descargar.excel_area_contratista');
+
+
+Route::post('/subir-archivo-excel', [ExcelController::class, 'uploadFileToProjectPython'])->name('subir.archivo.excel');
