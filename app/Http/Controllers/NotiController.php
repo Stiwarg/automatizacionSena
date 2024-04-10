@@ -20,7 +20,8 @@ class NotiController extends Controller
         $noti = Noti::all();
 
         // return view('tables.index_create', compact('noti'));
-        return view('layouts.main_template', compact('noti'));
+        // return view('layouts.main_template', compact('noti', $noti));
+        return view('layouts.main_template') ->with('noti', $noti);
     }
 
 }

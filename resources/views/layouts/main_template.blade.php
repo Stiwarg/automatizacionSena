@@ -72,39 +72,7 @@
       </li>
 
 
-      {{-- <!-- Botón para abrir el modal -->
-      <button type="button" class="btn btn-light" data-toggle="modal" data-target="#myModal">
-        <i class="fas fa-bell"></i> <!-- Icono de notificación -->
-      </button>
 
-      <!-- Modal -->
-      <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog" role="document">
-          <div class="modal-content">
-            <div class="modal-header">
-              <h5 class="modal-title" id="exampleModalLabel">Notificación</h5>
-              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                <span aria-hidden="true">&times;</span>
-              </button>
-            </div>
-              <div class="modal-body">
-                <!-- Aquí muestra los datos de la base de datos -->
-                @foreach($noti as $noti)
-                  <p>Plantilla de correos ID: {{ $noti->plantilla_correos_id }}</p>
-                @endforeach
-              </div>
-              <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" id="cerrarModal">Cerrar</button>
-            </div>
-            
-            <script>
-                document.getElementById('cerrarModal').addEventListener('click', function() {
-                    $('#miModal').modal('hide');
-                });
-            </script>
-          </div>
-        </div>
-      </div> --}}
 
       <li class="nav-item dropdown">
         <a class="nav-link" data-toggle="dropdown" href="#">
@@ -116,25 +84,16 @@
 
           <div class="modal-body">
             <!-- Aquí muestra los datos de la base de datos -->
-            @foreach($noti as $noti)
-              <p>Plantilla de correos ID: {{ $noti->plantilla_correos_id }}</p>
-            @endforeach
+            @isset($noti)
+              @include('layouts.noti')
+            @endisset
+
           </div>
-
-
-<!-- Script para cerrar el modal -->
-<script>
-  // Función para cerrar el modal al hacer clic en el botón de cerrar
-  $(document).ready(function(){
-    $(".close").click(function(){
-      $("#myModal").modal('hide');
-    });
-  });
-</script>
-
-
       <li class="nav-item">
-        <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+
+
+
+      <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
           @csrf
       </form>
       <button type="button" class="btn btn-light">

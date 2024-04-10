@@ -3,7 +3,6 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\Instructore;
 use App\Models\Hour;
 
 
@@ -18,7 +17,7 @@ class HoursController extends Controller
         // return view('tables.index_plant', compact('instructores'));
 
         $horas = Hour::all();
-        return view('tables.index_hours', compact('horas'));
+        return view('tables.index_hours', compact('horas', 'noti'));
         
     }
 

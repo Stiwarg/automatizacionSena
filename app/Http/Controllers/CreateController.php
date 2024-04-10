@@ -16,6 +16,7 @@ class CreateController extends Controller
         $areas = Area::all();
 
         return view('tables.index_create', compact('agregar', 'areas'));
+        
 
     }
 

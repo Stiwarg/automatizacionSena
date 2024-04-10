@@ -47,6 +47,7 @@ Route::get('/segundo-correo', [EmailOneController::class, 'secondEmail'])->name(
 Route::get('/tercer-correo', [EmailOneController::class, 'thirdEmail'])->name('emailone.thirdEmail');
 
 Route::get('/home', [NotiController::class, 'index'])->name('layouts.main_template');
+Route::get('/primer-correo', [NotiController::class, 'index'])->name('layouts.main_template');
 
 
 Route::put('/actualizacion-primer-correo/{id}', [EmailOneController::class, 'update'])->name('emailone.update');
