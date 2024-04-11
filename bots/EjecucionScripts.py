@@ -1,36 +1,45 @@
 # Contenido de main.py
 import subprocess
 import time
+# Lista de scripts a ejecutar
+scripts = [
+    "C:/Users/SENA/Desktop/bot/bots/reportefichas.py",
+    "C:/Users/SENA/Desktop/bot/bots/asignacionResultados.py",
+    "C:/Users/SENA/Desktop/bot/bots/ReporteNovedades.py",
+    "C:/Users/SENA/Desktop/bot/bots/TramitesReporte.py"
+]
 
-# Ejecutar script1.py
+for script in scripts:
+    process = subprocess.Popen(["python", script])
+    # Espera un tiempo máximo de 60 segundos para que el proceso termine
+    try:
+        process.wait(timeout=20)
+    except subprocess.TimeoutExpired:
+        print("El proceso ha tardado demasiado en finalizar.")
+
+time.sleep(10)
+#ejecucion script subida en base de datos
+subprocess.call(["python", "C:/Users/SENA/Desktop/bot/bots/areaPlanta.py"])
+time.sleep(10)
+subprocess.call(["python", "C:/Users/SENA/Desktop/bot/bots/contratistasArea.py"])
+time.sleep(10)
 subprocess.call(["python", "C:/Users/SENA/Desktop/bot/bots/contratistasBaseD.py"])
-
-# Ejecutar script2.py
+time.sleep(10)
 subprocess.call(["python", "C:/Users/SENA/Desktop/bot/bots/juiciosEvaluativosBaseD.py"])
-
-# Ejecutar script3.py
+time.sleep(10)
 subprocess.call(["python", "C:/Users/SENA/Desktop/bot/bots/plantaBaseD.py"])
-
-#Ejecutar script4.py
+time.sleep(10)
 subprocess.call(["python", "C:/Users/SENA/Desktop/bot/bots/reporteAsignacionBaseD.py"])
-
-#Ejecutar script5.py
+time.sleep(10)
 subprocess.call(["python", "C:/Users/SENA/Desktop/bot/bots/reporteNovedadesBaseD.py"])
-
-#Ejecutar script6.py
+time.sleep(10)
 subprocess.call(["python", "C:/Users/SENA/Desktop/bot/bots/ReporteNovedadesBaseDa.py"])
-
-#Ejecutar script7.py
+time.sleep(10)
 subprocess.call(["python", "C:/Users/SENA/Desktop/bot/bots/reporteTituladaBaseD.py"])
-
-time.sleep(60)
-#ejecucion de los script de descarga de documentos
-subprocess.call(["python","C:/Users/SENA/Desktop/bot/bots/reportefichas.py"])
-
-subprocess.call(["python","C:/Users/SENA/Desktop/bot/bots/asignacionResultados.py"])
-
-subprocess.call(["python","C:/Users/SENA/Desktop/bot/bots/ReporteNovedades.py"])
-
-subprocess.call(["python","C:/Users/SENA/Desktop/bot/bots/TramitesReporte.py"])
-
+time.sleep(10)
+subprocess.call(["python", "C:/Users/SENA/Desktop/bot/bots/excels.py"])
+time.sleep(10)
+subprocess.call(["python", "C:/Users/SENA/Desktop/bot/bots/EnviosCorreos.py"])
+time.sleep(10)
+subprocess.call(["python", "C:/Users/SENA/Desktop/bot/bots/TercerCorreo.py"])
 
