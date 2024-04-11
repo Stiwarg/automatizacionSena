@@ -5,9 +5,10 @@ from selenium import webdriver
 from selenium.webdriver.chrome.service import Service
 from selenium.webdriver.chrome.options import Options
 from datetime import datetime
+import time
 
 # Ruta de la carpeta de descarga
-download_folder = "C:\\Users\\SENA\\Desktop\\bot\\bots\\documentos"
+download_folder = "C:\\xampp\htdocs\\automatizacionSena\\bots\\documentos"
 #download_folder = "C:\\xampp\\htdocs\\bots\\documentos"
 
 # Configurar las opciones de Chrome para la descarga
@@ -19,15 +20,12 @@ chrome_options.add_experimental_option("prefs", {
     "safebrowsing.enabled": True
 })
 
-
-
 # Configurar la conexión a la base de datos MySQL en PhpMyAdmin
 #mysql_engine = create_engine('mysql+mysqlconnector://root:@localhost/proyecto')
 mysql_engine = create_engine('mysql+mysqlconnector://root:@localhost/prueba')
 
 try:
-
-    
+  
     # ... Código para navegar y descargar el archivo Excel omitido por claridad ...
 
     # Obtener la lista de archivos descargados con el mismo título
@@ -50,7 +48,7 @@ try:
     # Renombrar las columnas en el DataFrame
     df.rename(columns={'CÉDULA': 'cedula', 'INSTRUCTOR RESPONSABLE': 'instructor_responsable',
                        'CODIGO PROGRAMA': 'codigo_programa', 'PROGRAMA DE FORMACIÓN': 'programa_formacion',
-                       'NÚMERO FICHA': 'numero_ficha', 'CURSO': 'curso', 'TRIMESTRE DEL CURSO': 'trimestre_curso',
+                       'NÚMERO FICHA': 'cursos_id', 'CURSO': 'curso', 'TRIMESTRE DEL CURSO': 'trimestre_curso',
                        'TRIMESTRE DEL AÑO': 'trimestres_id', 'COMPETENCIA': 'competencia', 'RESULTADO': 'resultado',
                        'ACTIVIDAD PROYECTO': 'actividad_proyecto', 'RESPONSABLE EVALUAR RESULTADO': 'responsable_evaluacion'}, inplace=True)
     
@@ -81,6 +79,23 @@ try:
     # Eliminar la columna temporal 'instructor_id'
     df.drop(columns=['instructor_id'], inplace=True)
 
+    df['curso_id'] = None
+
+    for index, row in df.iterrows():
+        query_id_curso = f"SELECT id FROM cursos WHERE ficha = {row['cursos_id']} "
+        result = pd.read_sql_query(query_id_curso, con=mysql_engine)
+        print("Resultados de la consulta:", result)
+
+        if not result.empty:
+            df.at[index, 'curso_id'] = result['id'].iloc[0]
+        else:
+            df.at[index,'curso_id'] = None
+
+    time.sleep(0.8)  
+    df['curso_id'] = df['curso_id'].astype('Int64')
+    df['cursos_id'] = df['curso_id']
+
+    df.drop(columns=['curso_id'], inplace=True)
     # Obtener la fecha y hora actual para created_at
     now = datetime.now()
 
@@ -105,4 +120,4 @@ except Exception as e:
 finally:
     # Cerrar el navegador y la conexión a la base de datos
     if 'driver' in locals():
-        mysql_engine.dispose()
+     mysql_engine.dispose()

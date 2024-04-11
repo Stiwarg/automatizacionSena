@@ -13,7 +13,7 @@ from datetime import datetime, timedelta
 
 def run_code():
     #Se define la carperta donde se va a descargar los archivos:
-    download_folder = "C:\\Users\\SENA\\Desktop\\bot\\bots\\documentos"
+    download_folder = "C:\\xampp\htdocs\\automatizacionSena\\bots\\documentos"
 
     #Configurar las opciones de chrome 
     chrome_options = Options()

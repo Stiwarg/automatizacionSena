@@ -26,49 +26,68 @@ def connect_to_database():
             port=3306,
             user="root",
             password="",
-            database="prueba"
+            database="proyect"
         )
         return connection
     except mysql.connector.Error as error:
         print("Error al conectar a la base de datos: ", error)
         return None
 
-#Funcion para enviar el correo electronico
 def enviar_correo(contexto=None):
-
+    print("Iniciando función enviar_correo...")
+    
+    # Conexión a la base de datos
+    print("Estableciendo conexión con la base de datos...")
     connection = connect_to_database()
     cursor = connection.cursor()
-    #Consulta para obtener destinatarios de la base de datos
-    query_correo = "SELECT id, nombre ,correo FROM instructores"
-    cursor.execute(query_correo)
-    recipients = cursor.fetchall()  # Esto debería devolver una lista de tuplas
+    print("Conexión establecida correctamente.")
 
-    # Se itera sobre cada instructor
+    try:
+        # Consulta para obtener destinatarios de la base de datos
+        print("Ejecutando consulta SQL para obtener destinatarios...")
+        query_correo = "SELECT id, nombre, correo FROM instructores"
+        cursor.execute(query_correo)
+        recipients = cursor.fetchall()
+        print("Consulta SQL ejecutada exitosamente.")
 
-    for instructor in recipients:
-        id_instructor = instructor[0]
-        name_instructor = instructor[1]
-        email_instructor = instructor[2]
-        
-        query_trimester = "SELECT id AS id_trimestre FROM fechas_trimestre WHERE fecha_fin < CURDATE() ORDER BY fecha_fin DESC LIMIT 1"
-        cursor.execute(query_trimester)
-        trimester_result = cursor.fetchone()
+        # Se itera sobre cada instructor
+        for instructor in recipients:
+            # Información del instructor
+            id_instructor = instructor[0]
+            name_instructor = instructor[1]
+            email_instructor = instructor[2]
+            print(f"Procesando instructor: {name_instructor} - Correo: {email_instructor}")
 
-        if trimester_result:
-            id_trimester = trimester_result[0]
-        else:
-            print("No se encontró ningún trimestre activo.")
-            return
-        #Consulta 
-        # los resultados de aprendizaje para cada instructor 
-        query_results = f"SELECT CONCAT_WS(' ',c.nombre,c.apellidos) AS nombre_completo_instructor, a.resultado AS resultado_aprendizaje, b.actividad_proyecto, b.trimestre_curso, b.curso, e.ficha, a.juicio_evaluativo, a.estado_formacion ,CONCAT_WS(' ',a.nombre_aprendiz, a.apellidos_aprendiz) AS nombre_completo_aprendizaje, a.identificacion_aprendiz FROM resultados_asignados b INNER JOIN aprendices a ON b.cursos_id = a.cursos_id INNER JOIN instructores c ON c.id = a.instructores_id INNER JOIN cursos e ON e.id = b.cursos_id WHERE b.instructor_responsable = {id_instructor} AND b.trimestres_id = {id_trimester} AND a.instructores_id = b.instructor_responsable AND a.juicio_evaluativo = 'POR EVALUAR' AND a.estado_formacion = 'EN FORMACION' AND a.resultado LIKE CONCAT('%',b.resultado,'%')"
-        cursor.execute(query_results)
-        instructors = cursor.fetchall()
-        print("Funciono")
-        # Genera el HTML para la tabla de resultados de aprendizaje para cada instructor.
-        html_tabla = "<table border='1'><tr><th>Nombre del Instructor</th><th>Resultado de Aprendizaje</th><th>Actividad del Proyecto</th><th>Trimestre del Curso</th><th>Nombre del Curso</th><th>Numero de Ficha</th><th>Juicio de Evaluación</th><th>Estado de Formación</th><th>Nombre del Aprendiz</th><th>Identificación del Aprendiz</th></tr>"
+            # Consulta para obtener el trimestre actual
+            print("Ejecutando consulta SQL para obtener el trimestre actual...")
+            query_trimester = "SELECT id AS id_trimestre FROM fechas_trimestre WHERE fecha_fin < CURDATE() ORDER BY fecha_fin DESC LIMIT 1"
+            cursor.execute(query_trimester)
+            trimester_result = cursor.fetchone()
+            print("Consulta SQL ejecutada exitosamente.", trimester_result)
+
+            if trimester_result:
+                id_trimester = trimester_result[0]
+            else:
+                print("No se encontró ningún trimestre activo.")
+                return
+
+            # Consulta para obtener los resultados de aprendizaje pendientes para el instructor actual
+            print("Ejecutando consulta SQL para obtener resultados de aprendizaje pendientes...")
+            query_results = f"SELECT CONCAT_WS(' ', i.nombre, i.apellidos) AS nombre_completo, r.resultado AS resultado_aprendizaje, actividad_proyecto, trimestre_curso, curso, numero_ficha, juicio_evaluativo FROM resultados_asignados r INNER JOIN instructores i ON r.instructor_responsable = i.id INNER JOIN aprendices a ON i.id = a.instructores_id WHERE r.instructor_responsable = {id_instructor} AND r.trimestres_id = {id_trimester} AND juicio_evaluativo = 'POR EVALUAR'"
+            print(query_results)
+            try:
+                print("aaaaaaaaa")
+                instructors = cursor.fetchall()
+                print(instructors)
+            except Exception as e:
+                print("Error al ejecutar cursor.fetchall():", e)
+            print("Consulta SQL ejecutada exitosamente.")
+
+        print("PASO")
+            # Genera el HTML para la tabla de resultados de aprendizaje para cada instructor.
+        html_tabla = "<table border='1'><tr><th>Nombre del Instructor</th><th>Resultado de Aprendizaje</th><th>Actividad del Proyecto</th><th>Trimestre del Curso</th><th>Nombre del Curso</th><th>Numero de Ficha</th><th>Juicio de Evaluación</th></tr>"
         for resultado in instructors:
-            html_tabla += f"<tr><td>{resultado[0]}</td><td>{resultado[1]}</td><td>{resultado[2]}</td><td>{resultado[3]}</td><td>{resultado[4]}</td><td>{resultado[5]}</td><td>{resultado[6]}</td><td>{resultado[7]}</td><td>{resultado[8]}</td><td>{resultado[9]}</td></tr>"
+            html_tabla += f"<tr><td>{resultado[0]}</td><td>{resultado[1]}</td><td>{resultado[2]}</td><td>{resultado[3]}</td><td>{resultado[4]}</td><td>{resultado[5]}</td><td>{resultado[6]}</td></tr>"
         html_tabla += "</table>"
 
         #Configuracion del correo
@@ -157,8 +176,16 @@ def enviar_correo(contexto=None):
             server.sendmail(sender_email, [email_instructor] , message.as_string())
             print('Correo enviado con exito.')
 
-    cursor.close()
-    connection.close()
+        # Cierre de la conexión a la base de datos
+        cursor.close()
+        connection.close()
+        print("Conexión a la base de datos cerrada correctamente.")
+
+    except Exception as e:
+        print("Error al ejecutar la función enviar_correo:", e)
+        # Aquí puedes agregar cualquier manejo de errores necesario
+
+    print("Función enviar_correo completada.")
 
 
 def search_date_trimeste():
@@ -183,8 +210,6 @@ def search_date_trimeste():
 
     return current_trimester, next_trimester_start_date
 
-    
-
 def program_shipments():
     print("Iniciando programa de envío de correos...")
     
@@ -203,7 +228,7 @@ def program_shipments():
 
         if fecha_envio_correo:
             print(f"Fecha de envío del correo programada para: {fecha_envio_correo}")
-            fecha_envio_correo = datetime(fecha_envio_correo.year, fecha_envio_correo.month, fecha_envio_correo.day, 17, 50, 0)
+            fecha_envio_correo = datetime(fecha_envio_correo.year, fecha_envio_correo.month, fecha_envio_correo.day, 13, 4, 0)
 
             print("Agregando tarea programada para enviar correo...")
             scheduler.add_job(enviar_correo, 'date', run_date=fecha_envio_correo)
@@ -212,10 +237,7 @@ def program_shipments():
 
     print("Programa de envío de correos completado.")
 
-
-
+program_shipments()
 # Mantener el programa en ejecución
 while True:
-    program_shipments()
-    # Esperar un tiempo antes de verificar de nuevo (por ejemplo, 1 día)
-    time.sleep(24 * 60 * 60)  # Esperar 24 horas
+    pass

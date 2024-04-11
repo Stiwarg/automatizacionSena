@@ -7,8 +7,8 @@ from selenium.webdriver.chrome.options import Options
 from datetime import datetime
 
 # Ruta de la carpeta de descarga
-download_folder = "C:\\Users\\SENA\\Desktop\\bot\\bots\\documentos"
-
+download_folder = "C:\\xampp\htdocs\\automatizacionSena\\bots\\documentos"
+#download_folder = "C:\\xampp\\htdocs\\bots\\documentos"
 # Configurar las opciones de Chrome para la descarga
 chrome_options = Options()
 chrome_options.add_experimental_option("prefs", {
@@ -18,12 +18,10 @@ chrome_options.add_experimental_option("prefs", {
     "safebrowsing.enabled": True
 })
 
-
 # Configurar la conexión a la base de datos MySQL en PhpMyAdmin
 mysql_engine = create_engine('mysql+mysqlconnector://root:@localhost/prueba')
 
 try:
-    # ... Código para navegar y descargar el archivo Excel omitido por claridad ...
 
     # Obtener la lista de archivos descargados con el mismo título
     archivos_descargados = os.listdir(download_folder)
@@ -55,7 +53,19 @@ try:
     df['fecha_registro'] = pd.to_datetime(df['fecha_registro'], format='%Y-%m-%d')
 
     # Añadir el campo 'aprendices_id' al DataFrame
-    df['aprendices_id'] = 1
+    df['aprendices_id'] = None
+    df['aprendices_id'] = df['aprendices_id'].astype('Int64')
+
+    for index, row in df.iterrows():
+
+        cedula_aprendiz = row['documento']
+        querys_id = f"SELECT id FROM aprendices WHERE identificacion_aprendiz = {cedula_aprendiz} ORDER BY created_at ASC LIMIT 1"
+        result = pd.read_sql_query(querys_id, con=mysql_engine)
+
+        if not result.empty:
+            df.at[index,'aprendices_id'] = result['id'].iloc[0]
+        else:
+            df.at[index,'aprendices_id'] =  None
 
     # Obtener la fecha y hora actual para created_at
     now = datetime.now()
@@ -82,4 +92,4 @@ except Exception as e:
 finally:
     # Cerrar el navegador y la conexión a la base de datos
     if 'driver' in locals():
-      mysql_engine.dispose()
+     mysql_engine.dispose()
