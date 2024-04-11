@@ -1,12 +1,10 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    {{-- <title>Resultado Python</title> --}}
+    <title></title>
 </head>
 <body>
-    <h6>Resultado de Python:</h6>
-    <pre>{{ $output  }}</pre>
+    <h6>Salida de Python</h6>
+    <p>{{ $output }}</p>
 </body>
 </html>
