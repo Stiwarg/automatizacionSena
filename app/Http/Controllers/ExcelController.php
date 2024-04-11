@@ -57,12 +57,11 @@ class ExcelController extends Controller
                 // Ejecutar el script Python para mover el archivo a la carpeta de documentos
                 $rutaFile = storage_path('app/temp/' . $nameFile);
 
-                //Aqui no esta llamando 
+                //Aqui no esta llamando
                 //La ruta es del computador de estiven
-                //$output = shell_exec("python C:\\xampp\\htdocs\\bots\\excels.py$rutaFile");
-
+                $output = shell_exec("python C:\\xampp\\htdocs\\bots\\excels.py $rutaFile");
                 // La ruta es del computador de jheniffer
-                $output = shell_exec("python C:\\Users\\SENA\\Desktop\\bot\\bots\\excels.py $rutaFile");
+                #$output = shell_exec("python C:\\Users\\SENA\\Desktop\\bot\\bots\\excels.py $rutaFile");
 
                 // Eliminar el archivo temporal después de procesarlo
                 Storage::disk('local')->delete('temp/' . $nameFile);
