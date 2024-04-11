@@ -26,7 +26,7 @@ def connect_to_database():
             port=3307,
             user="root",
             password="",
-            database="proyec"
+            database="prueba"
         )
         return connection
     except mysql.connector.Error as error:

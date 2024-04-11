@@ -24,7 +24,7 @@ def enviar_correo():
         port= 3307,
         user='root',
         password='',
-        database='proyecto'
+        database='prueba'
     )
 
     cursor = connection.cursor()

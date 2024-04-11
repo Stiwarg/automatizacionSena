@@ -20,17 +20,11 @@ chrome_options.add_experimental_option("prefs", {
     "safebrowsing.enabled": True
 })
 
-# Ruta del controlador de Chrome
-chrome_driver_path = r"C:\dchrome\chromedriver.exe"
 
 # Configurar la conexión a la base de datos MySQL en PhpMyAdmin
-mysql_engine = create_engine('mysql+mysqlconnector://root:@localhost/proyect')
+mysql_engine = create_engine('mysql+mysqlconnector://root:@localhost/prueba')
 
 try:
-    # Iniciar el navegador Chrome
-    service = Service(executable_path=chrome_driver_path)
-    driver = webdriver.Chrome(service=service, options=chrome_options)
-    
     # ... Código para navegar y descargar el archivo Excel omitido por claridad ...
 
     # Obtener la lista de archivos descargados con el mismo título
@@ -86,5 +80,4 @@ except Exception as e:
 finally:
     # Cerrar el navegador y la conexión a la base de datos
     if 'driver' in locals():
-        driver.quit()
-    mysql_engine.dispose()
+        mysql_engine.dispose()
