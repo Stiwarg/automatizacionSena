@@ -91,6 +91,26 @@
           </div>
       <li class="nav-item">
 
+      
+      <li class="nav-item dropdown">
+          <a class="nav-link" data-toggle="dropdown" href="#">
+            <i class="far fa-bell"></i>
+          </a>
+          <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
+
+            <form action="{{ route('layouts.main_template') }}" method="POST">
+              @csrf
+              <button type="submit" class="btn btn-primary">Ejecutar Python</button>
+                {{-- @include('layouts.noti') --}}
+                
+                @isset($output)
+                @include('tables.resultado_python')
+              @endisset
+            </form>
+
+        <li class="nav-item">
+
+
 
 
       <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">

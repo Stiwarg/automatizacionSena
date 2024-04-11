@@ -52,6 +52,10 @@ Route::get('/home', [NotiController::class, 'index'])->name('layouts.main_templa
 Route::get('/primer-correo', [NotiController::class, 'index'])->name('layouts.main_template');
 
 
+// Route::post('/home', 'PythonController@ejecutarPython')->name('ejecutar.python');
+Route::post('/home', 'PythonController@ejecutarPython')->name('layouts.main_template');
+
+
 Route::put('/actualizacion-primer-correo/{id}', [EmailOneController::class, 'update'])->name('emailone.update');
 Route::put('/actualizacion-segundo-correo/{id}', [EmailOneController::class, 'updateSecondEmail'])->name('emailtwo.update');
 Route::put('/actualizacion-tercer-correo/{id}', [EmailOneController::class, 'updateThirdEmail'])->name('emailthird.update');
