@@ -27,10 +27,11 @@ class PythonController extends Controller
     // }
     public function ejecutarPython()
     {
-        $rutaBase = base_path();
+        // Ruta al archivo Python
+        // Ruta al archivo Python
+        $rutaArchivoPython = base_path('automatizacionSena/bots/prueba.py');
 
-        // Construir la ruta al archivo Python concatenando la ruta base con la ruta relativa
-        $rutaArchivoPython = $rutaBase . DIRECTORY_SEPARATOR . 'public' . DIRECTORY_SEPARATOR . 'bots' . DIRECTORY_SEPARATOR . 'prueba.py';
+
 
         // Ejecutar el script Python y capturar la salida completa
         exec("python {$rutaArchivoPython} 2>&1", $output, $returnCode);
