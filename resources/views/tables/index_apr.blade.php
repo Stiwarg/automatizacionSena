@@ -9,42 +9,6 @@
                 <h3 class="card-title">Agregar Nuevo Aprendiz</h3>
             </div>
             <div class="card-body">
-                {{-- <div class="row">
-                    <!-- Primera columna -->
-                    <div class="col-md-6">
-                        <div class="form-group">
-                            <h3 class="card-title">Planilla de Excel de Planta:</h3>
-                            <br>
-                            <a href="{{ route('descargar.excel_planta') }}" class="btn btn-primary">Descargar</a>
-                        </div>
-                    </div>
-                    <!-- Segunda columna -->
-                    <div class="col-md-6">
-                        <div class="form-group">
-                            <h3 class="card-title">Planilla de Excel de Contratistas:</h3>
-                            <br>
-                            <a href="{{ route('descargar.excel_contratista') }}" class="btn btn-primary">Descargar</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="row">
-                    <!-- Primera columna -->
-                    <div class="col-md-6">
-                        <div class="form-group">
-                            <h3 class="card-title">Planilla de Excel de Instructores de Area de Planta:</h3>
-                            <br>
-                            <a href="{{ route('descargar.excel_area_planta') }}" class="btn btn-primary">Descargar</a>
-                        </div>
-                    </div>
-                    <!-- Segunda columna -->
-                    <div class="col-md-6">
-                        <div class="form-group">
-                            <h3 class="card-title">Planilla de Excel de Instructores de Area Contratistas:</h3>
-                            <br>
-                            <a href="{{ route('descargar.excel_area_contratista') }}" class="btn btn-primary">Descargar</a>
-                        </div>
-                    </div>
-                </div> --}}
                 <div class="row">
                     <!-- Segunda columna -->
                     <div class="col-md-7">

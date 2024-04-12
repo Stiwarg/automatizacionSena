@@ -203,7 +203,7 @@ def program_shipments():
 
         if fecha_envio_correo:
             print(f"Fecha de envío del correo programada para: {fecha_envio_correo}")
-            fecha_envio_correo = datetime(fecha_envio_correo.year, fecha_envio_correo.month, fecha_envio_correo.day, 12, 30, 0)
+            fecha_envio_correo = datetime(fecha_envio_correo.year, fecha_envio_correo.month, fecha_envio_correo.day, 10, 25, 0)
 
             print("Agregando tarea programada para enviar correo...")
             scheduler.add_job(enviar_correo, 'date', run_date=fecha_envio_correo)
