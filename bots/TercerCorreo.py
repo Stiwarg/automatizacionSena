@@ -6,7 +6,7 @@ from email.mime.text import MIMEText
 from email.mime.image import MIMEImage
 from datetime import datetime, timedelta
 from apscheduler.schedulers.background import BackgroundScheduler
-import schedulek
+import schedule
 import time
 import mysql.connector
 
@@ -140,7 +140,7 @@ def enviar_correo(contexto=None):
         message.attach(MIMEText(body_info + " <br> " + html_tabla + " <br> " + html_content, 'html'))
 
         # Adjuntar imagenes
-        image_files = ['img/sena.png','img/redes1.png','img/redes2.png','img/redes3.png','img/redes4.png','img/redes5.png','img/redes6.png','img/redes7.png']
+        image_files = ['bots/img/sena.png','bots/img/redes1.png','bots/img/redes2.png','bots/img/redes3.png','bots/img/redes4.png','bots/img/redes5.png','bots/img/redes6.png','bots/img/redes7.png']
 
     # Adjuntar imágenes al mensaje
         for idx, image_path in enumerate(image_files, start=1):
@@ -203,7 +203,7 @@ def program_shipments():
 
         if fecha_envio_correo:
             print(f"Fecha de envío del correo programada para: {fecha_envio_correo}")
-            fecha_envio_correo = datetime(fecha_envio_correo.year, fecha_envio_correo.month, fecha_envio_correo.day, 17, 50, 0)
+            fecha_envio_correo = datetime(fecha_envio_correo.year, fecha_envio_correo.month, fecha_envio_correo.day, 12, 30, 0)
 
             print("Agregando tarea programada para enviar correo...")
             scheduler.add_job(enviar_correo, 'date', run_date=fecha_envio_correo)

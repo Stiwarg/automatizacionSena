@@ -59,9 +59,7 @@ Route::get('/primer-correo', [NotiController::class, 'index'])->name('layouts.ma
 
 // Route::post('/home', 'PythonController@ejecutarPython')->name('ejecutar.python');
 Route::post('/home', 'PythonController@ejecutarPython')->name('layouts.main_template');
-Route::post('/reen', 'PythonController@ejecutarPython')->name('python.reenviar');
-// Route::resource('contractors', 'PythonController');
-
+Route::post('/contratistas', 'PythonController@ejecutarPython')->name('email.reen_email');
 
 
 Route::put('/actualizacion-primer-correo/{id}', [EmailOneController::class, 'update'])->name('emailone.update');

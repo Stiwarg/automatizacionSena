@@ -13,7 +13,7 @@
             margin-top: 50px;
         }
     </style>
-    <h1>Bienvenido a la pagina de automatizacion SENA</h1>
+    <h2>Bienvenido a la pagina de automatizacion SENA</h2>
     <img src="{{asset('img/2.png')}}" alt="sena">
 
 </div><!--/. container-fluid                         Aqui-->  
