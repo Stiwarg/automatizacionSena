@@ -12,8 +12,7 @@ use App\Http\Controllers\EmailOneController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\NotiController;
 use App\Http\Controllers\ExcelController;
-
-
+use App\Http\Controllers\PythonController;
 
 Route::get('/', function () {
     return view('welcome');
@@ -58,8 +57,12 @@ Route::get('/primer-correo', [NotiController::class, 'index'])->name('layouts.ma
 
 
 // Route::post('/home', 'PythonController@ejecutarPython')->name('ejecutar.python');
+// Route::post('/contractor', 'PythonController@ejecutarPython')->name('python.reenviar');
+Route::post('/contractor', [PythonController::class, 'index'])->name('python.reenviar');
+
+
 Route::post('/home', 'PythonController@ejecutarPython')->name('layouts.main_template');
-Route::post('/contratistas', 'PythonController@ejecutarPython')->name('email.reen_email');
+
 
 
 Route::put('/actualizacion-primer-correo/{id}', [EmailOneController::class, 'update'])->name('emailone.update');
