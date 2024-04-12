@@ -12,7 +12,7 @@
                 <div class="row">
                     <!-- Segunda columna -->
                     <div class="col-md-7">
-                        <form action="{{ route('subir.archivo.excel') }}" method="post" enctype="multipart/form-data">
+                        <form action="{{ route('subir.archivo.excelapr') }}" method="post" enctype="multipart/form-data">
                             @csrf
                             <div class="form-group mr-2">
                                 <label for="archivo_excel" class="mr-2">Subir Archivo de Excel (Nota: El archivo de excel tiene que tener el mismo nombre con el que fue descargado para poder subirlo)</label>

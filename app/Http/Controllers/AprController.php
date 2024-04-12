@@ -31,7 +31,7 @@ class AprController extends Controller
             $nameFile = $excelFile->getClientOriginalName();
 
             // Comprueba si el nombre del archivo comienza con "ReportedeJuiciosEvaluativos"
-            if( Str::startsWith($nameFile, 'ReportedeJuiciosEvaluativos_') !== false) 
+            if( str_contains($nameFile, 'ReportedeJuiciosEvaluativos') !== false) 
             {
 
                 // Guardar el archivo Excel en una carpeta temporal
@@ -41,7 +41,7 @@ class AprController extends Controller
                 $rutaFile = storage_path('app/temp/' . $nameFile);
 
                 //Aqui no esta llamando
-                $output = shell_exec("python C:\\xampp\\htdocs\\automatizacionSena\\bots\\excels.py $rutaFile");
+                $output = shell_exec("python C:\\xampp\\htdocs\\automatizacionSena\\bots\\excelsJuicos.py $rutaFile");
 
                 //La ruta es del computador de estiven
                 //$output = shell_exec("python C:\\xampp\\htdocs\\bots\\excels.py $rutaFile");

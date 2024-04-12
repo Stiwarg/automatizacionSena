@@ -58,9 +58,16 @@ Route::post('/primer-correo', [NotiController::class, 'index'])->name('layouts.m
 
 
 // Route::post('/home', 'PythonController@ejecutarPython')->name('ejecutar.python');
-Route::get('/home', [PythonController::class, 'reenviar'])->name('python.reenviar');
-Route::post('/contratistas', [PythonController::class, 'reenviar'])->name('tables.index_contractor');
+
+// Route::get('/home', [PythonController::class, 'reenviar'])->name('python.reenviar');
+// Route::post('/contratistas', [PythonController::class, 'reenviar'])->name('tables.index_contractor');
+
 // Route::post('/contratistas', 'App\Http\Controllers\PythonController@reenviar')->name('python.reenviar');
+// Route::post('/reenviarCorreo', 'PythonController@reenviar')->name('reenviarCorreo');
+Route::post('/reenviarCorreo', [PythonController::class, 'reenviar'])->name('reenviarCorreo');
+
+// Route::post('/reenviarCorreo', 'PythonController@reenviar')->name('reenviarCorreo');
+
 // Route::post('/contractor', 'PythonController@ejecutarPython')->name('python.reenviar');
 
 

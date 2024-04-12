@@ -18,9 +18,9 @@ def move_file_to_documents_excels(ruta_file):
 
         # Verificar y ejecutar el script Python correspondiente
         if "ReportedeJuiciosEvaluativos_" in name_file:
-            log_message = "Archivo de juicios evaluativos: " + name_file
             subprocess.call(["python", "C:\\xampp\\htdocs\\automatizacionSena\\bots\\juiciosEvaluativosBaseD.py"], shell=True)
             #subprocess.call(["python", "C:\\xampp\\htdocs\\bots\\juiciosEvaluativosBaseD.py"], shell=True)
+            log_message = "Archivo de juicios evaluativos: " + name_file
         else:
             log_message = "Nombre de archivo no reconocido: " + name_file
 
