@@ -19,19 +19,19 @@ def move_file_to_documents(ruta_file):
         # Verificar y ejecutar el script Python correspondiente
         if "CONTRATISTAS_2024_BD" in name_file:
             log_message = "Archivo de contratistas: " + name_file
-            subprocess.call(["python", "C:\\Users\\SENA\\Desktop\\bot\\bots\\contratistasBaseD.py"], shell=True)
+            subprocess.call(["python", "C:\\xampp\\htdocs\\automatizacionSena\\bots\\contratistasBaseD.py"], shell=True)
             #subprocess.call(["python", "C:\\xampp\\htdocs\\bots\\contratistasBaseD.py"], shell=True)
         elif "INSTRUCTORES_AREA_CONTRATISTA" in name_file:
             log_message = "Archivo de instructores de área contratista: " + name_file
-            subprocess.call(["python", "C:\\Users\\SENA\\Desktop\\bot\\bots\\contratistasArea.py"], shell=True)
+            subprocess.call(["python", "C:\\xampp\\htdocs\\automatizacionSena\\bots\\contratistasArea.py"], shell=True)
             #subprocess.call(["python", "C:\\xampp\\htdocs\\bots\\contratistaArea.py"], shell=True)
         elif "Instructores_AREA" in name_file:
             log_message = "Archivo de instructores de área: " + name_file
-            subprocess.call(["python", "C:\\Users\\SENA\\Desktop\\bot\\bots\\areaPlanta.py"], shell=True)
+            subprocess.call(["python", "C:\\xampp\\htdocs\\automatizacionSena\\bots\\areaPlanta.py"], shell=True)
             #subprocess.call(["python", "C:\\xampp\\htdocs\\bots\\areaPlanta.py"], shell=True)
         elif "PLANTA_2024_BD" in name_file:
             log_message = "Archivo de planta: " + name_file
-            subprocess.call(["python", "C:\\Users\\SENA\\Desktop\\bot\\bots\\plantaBaseD.py"], shell=True)
+            subprocess.call(["python", "C:\\xampp\\htdocs\\automatizacionSena\\bots\\plantaBaseD.py"], shell=True)
             #subprocess.call(["python", "C:\\xampp\\htdocs\\bots\\plantaBaseD.py"], shell=True)
         else:
             log_message = "Nombre de archivo no reconocido: " + name_file
@@ -40,7 +40,7 @@ def move_file_to_documents(ruta_file):
         #with open("C:\\Users\\SENA\\Desktop\\bot\\bots\\debug_log.txt", "a") as log_file:
         #   log_file.write(log_message + "\n")
 
-        with open("C:\\Users\\SENA\\Desktop\\bot\\bots\\debug_log.txt", "a") as log_file:
+        with open("C:\\xampp\\htdocs\\automatizacionSena\\bots\\debug_log.txt", "a") as log_file:
             log_file.write(log_message + "\n")
     except Exception as e:
         print("Error al mover o ejecutar el archivo:", str(e))

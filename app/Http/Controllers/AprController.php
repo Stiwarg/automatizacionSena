@@ -36,7 +36,7 @@ class AprController extends Controller
                 // strpos($nameFile, 'INSTRUCTORES_AREA_CONTRATISTA') !== false ||
                 // strpos($nameFile, 'Instructores_AREA') !== false ||
                 // strpos($nameFile, 'PLANTA_2024_BD') !== false
-                strpos($nameFile, 'Aprendiz_2024_BD') !== false
+                strpos($nameFile, 'ReportedeJuiciosEvaluativos') !== false
             ) {
                 // Guardar el archivo Excel en una carpeta temporal
                 $excelFile->storeAs('temp', $nameFile);
@@ -46,7 +46,7 @@ class AprController extends Controller
 
                 //Aqui no esta llamando
                 //La ruta es del computador de estiven
-                $output = shell_exec("python C:\\xampp\\htdocs\\bots\\excels.py $rutaFile");
+                $output = shell_exec("python C:\\xampp\\htdocs\\automatizacionSena\\bots\\excels.py $rutaFile");
                 // La ruta es del computador de jheniffer
                 #$output = shell_exec("python C:\\Users\\SENA\\Desktop\\bot\\bots\\excels.py $rutaFile");
 
