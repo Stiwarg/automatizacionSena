@@ -48,7 +48,7 @@
         </a>
       </li>
       <li class="nav-item">
-        <a href="{{ route('apr.index') }}" class="nav-link"><div class="023"></div>
+        <a href="{{ route('apr.index') }}" class="nav-link">
           <i class="nav-icon fas fa-edit"></i>
           <p>Agregar Aprendiz</p>
         </a>
