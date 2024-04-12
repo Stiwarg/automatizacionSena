@@ -151,7 +151,7 @@ def enviar_correo(contexto=None):
         message.attach(MIMEText(body_info + " <br> " + html_tabla + " <br> " + html_content, 'html'))
 
         # Adjuntar imagenes
-        image_files = ['img/sena.png','img/redes1.png','img/redes2.png','img/redes3.png','img/redes4.png','img/redes5.png','img/redes6.png','img/redes7.png']
+        image_files = ['bots/img/sena.png','bots/img/redes1.png','bots/img/redes2.png','bots/img/redes3.png','bots/img/redes4.png','bots/img/redes5.png','bots/img/redes6.png','bots/img/redes7.png']
 
     # Adjuntar imágenes al mensaje
         for idx, image_path in enumerate(image_files, start=1):
