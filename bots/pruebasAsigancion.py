@@ -7,7 +7,7 @@ from selenium.webdriver.chrome.options import Options
 from datetime import datetime
 
 # Ruta de la carpeta de descarga
-download_folder = "C:\\xampp\htdocs\\automatizacionSena\\bots\\documentos"
+download_folder = "C:\\Users\\SENA\\Desktop\\bot\\bots\\documentos"
 #download_folder = "C:\\xampp\\htdocs\\bots\\documentos"
 
 
