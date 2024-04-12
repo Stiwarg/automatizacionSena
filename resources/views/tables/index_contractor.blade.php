@@ -39,7 +39,13 @@
             <td class="project-actions text-right">
                 <input type="hidden" name="" value="{{$contra->id}}">
                 <a class="btn btn-primary btn-sm" href="{{ route('tables.index_edit', $contra->id) }}">Editar</a>
-                <span class="btn btn-primary btn-sm mr3">Reenviar Correo</span>
+                <form action="{{ route('email.reen_email') }}" method="POST">
+                  @csrf
+                  <button type="submit" class="btn btn-primary">Reenviar Correo
+                  </button>
+                </form>
+
+                {{-- <span class="btn btn-primary btn-sm mr3">Reenviar Correo</span> --}}
             </td>
           </tr>
         @endforeach

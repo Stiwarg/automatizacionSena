@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\PlantController;
 use App\Http\Controllers\ContractorController;
 use App\Http\Controllers\ApprenticeController;
+use App\Http\Controllers\AprController;
 use App\Http\Controllers\CreateController;
 use App\Http\Controllers\HoursController;
 use App\Http\Controllers\EmailOneController;
@@ -26,6 +27,7 @@ Route::resource('contratistas',ContractorController::class)->names('contractor')
 Route::resource('aprendices',ApprenticeController::class)->names('apprentice');
 Route::resource('horas',HoursController::class)->names('hours');
 Route::resource('agregar',CreateController::class)->names('create');
+Route::resource('aprendiz',CreateController::class)->names('agreapre');
 Route::resource('primer correo',EmailOneController::class)->names('emailone');
 Route::resource('instructors', CreateController::class);
 
@@ -44,6 +46,9 @@ Route::post('/hours', 'App\Http\Controllers\HoursTController@store')->name('hour
 Route::get('/create', [CreateController::class, 'index'])->name('create.index');
 Route::post('/create', [CreateController::class, 'store'])->name('create.store');
 
+Route::get('/apr', [AprController::class, 'index'])->name('apr.index');
+
+
 Route::get('/primer-correo', [EmailOneController::class, 'index'])->name('emailone.index');
 Route::get('/segundo-correo', [EmailOneController::class, 'secondEmail'])->name('emailone.secondEmail');
 Route::get('/tercer-correo', [EmailOneController::class, 'thirdEmail'])->name('emailone.thirdEmail');
@@ -54,6 +59,7 @@ Route::get('/primer-correo', [NotiController::class, 'index'])->name('layouts.ma
 
 // Route::post('/home', 'PythonController@ejecutarPython')->name('ejecutar.python');
 Route::post('/home', 'PythonController@ejecutarPython')->name('layouts.main_template');
+Route::post('/contratistas', 'PythonController@ejecutarPython')->name('email.reen_email');
 
 
 Route::put('/actualizacion-primer-correo/{id}', [EmailOneController::class, 'update'])->name('emailone.update');

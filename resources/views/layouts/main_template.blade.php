@@ -106,7 +106,7 @@
                 @isset($output)
                   @include('tables.resultado_python')
                 @endisset
-              </form>
+            </form>
         <li class="nav-item">
 
 

@@ -9,11 +9,16 @@ class PythonController extends Controller
     public function ejecutarPython()
     {
         // Ruta al archivo Python
+<<<<<<< Updated upstream
         // $rutaArchivoPython = 'C:/xampp/htdocs/automatizacionSena/bots/areaPlanta.py';
         // $rutaArchivoPython = 'C:/xampp/htdocs/automatizacionSena/bots/prueba.py';
         // $rutaArchivoPython = 'C:/xampp/htdocs/automatizacionSena/bots/contratistasBaseD.py';
         $rutaArchivoPython = 'C:/xampp/htdocs/automatizacionSena/bots/asignacionResultados.py';
         #$rutaArchivoPython = 'C:\xampp\htdocs\automatizacionSena\bots\prueba.py';
+=======
+        // $rutaArchivoPython = 'C:/xampp/htdocs/automatizacionSena/bots/EjecucionScripts.py';
+        $rutaArchivoPython = 'C:/xamppTC/htdocs/laravelapp/automatizacionSena/bots/prueba.py';
+>>>>>>> Stashed changes
 
         // Ejecutar el script Python y capturar la salida completa
         exec("python {$rutaArchivoPython} 2>&1", $output, $returnCode);
@@ -23,5 +28,22 @@ class PythonController extends Controller
 
         // Pasar la salida completa a la vista
         return view('layouts.main_template', ['output' => $salidaCompleta]);
+    }
+
+
+    public function reenviar()
+    {
+        // $rutaArchivoPython = 'C:/xamppTC/htdocs/laravelapp/automatizacionSena/bots/prueba.py';
+        $rutaArchivoPython = 'C:/xamppTC/htdocs/laravelapp/automatizacionSena/bots/prueba.py';
+
+        // Ejecutar el script Python y capturar la salida completa
+        exec("python {$rutaArchivoPython} 2>&1", $output1, $returnCode);
+
+        // Combinar la salida en una cadena
+        $salidaCompleta = implode(PHP_EOL, $output1);
+
+        // Pasar la salida completa a la vista
+        return view('email.reen_email', ['output1' => $salidaCompleta]);
+
     }
 }
