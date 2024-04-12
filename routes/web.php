@@ -74,3 +74,4 @@ Route::get('/descargar-excel-area-contratista', 'ExcelController@descargar_area_
 
 
 Route::post('/subir-archivo-excel', [ExcelController::class, 'uploadFileToProjectPython'])->name('subir.archivo.excel');
+Route::post('/subir-archivo-excelapr', [AprController::class, 'uploadFileToProjectPython_apr'])->name('subir.archivo.excelapr');
