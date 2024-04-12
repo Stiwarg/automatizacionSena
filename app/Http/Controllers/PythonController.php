@@ -26,10 +26,11 @@ class PythonController extends Controller
     }
 
 
-    public function reenviar()
+    public function reenviar(Request $request)
     {
         // $rutaArchivoPython = 'C:/xamppTC/htdocs/laravelapp/automatizacionSena/bots/prueba.py';
-        $rutaArchivoPython = 'C:/xamppTC/htdocs/laravelapp/automatizacionSena/bots/prueba.py';
+        // $rutaArchivoPython = 'C:/xamppTC/htdocs/laravelapp/automatizacionSena/bots/prueba.py';
+        $rutaArchivoPython = 'C:/xamppTC/htdocs/laravelapp/automatizacionSena/bots/TercerCorreo.py';
 
         // Ejecutar el script Python y capturar la salida completa
         exec("python {$rutaArchivoPython} 2>&1", $output1, $returnCode);
@@ -38,7 +39,10 @@ class PythonController extends Controller
         $salidaCompleta = implode(PHP_EOL, $output1);
 
         // Pasar la salida completa a la vista
-        return view('email.reen_email', ['output1' => $salidaCompleta]);
+        // return view('email.reen_email', ['output1' => $salidaCompleta]);
+        // return view('tables.index_contractor', compact('contractor'));
+        // return view('tables.index_edit', compact('contractor'));
+        return redirect($request->input('hours'));
 
     }
 }

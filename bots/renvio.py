@@ -6,7 +6,7 @@ from email.mime.text import MIMEText
 from email.mime.image import MIMEImage
 from datetime import datetime, timedelta
 from apscheduler.schedulers.background import BackgroundScheduler
-import schedule
+# import schedule
 import time
 import mysql.connector
 
