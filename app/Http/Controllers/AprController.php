@@ -32,12 +32,21 @@ class AprController extends Controller
 
             // Definir las condiciones para determinar la carpeta de destino en Python
             if (
+<<<<<<< Updated upstream
                 // strpos($nameFile, 'CONTRATISTAS_2024_BD') !== false ||
                 // strpos($nameFile, 'INSTRUCTORES_AREA_CONTRATISTA') !== false ||
                 // strpos($nameFile, 'Instructores_AREA') !== false ||
                 // strpos($nameFile, 'PLANTA_2024_BD') !== false
                 strpos($nameFile, 'ReportedeJuiciosEvaluativos') !== false
             ) {
+=======
+
+                strpos($nameFile, 'ReportedeJuiciosEvaluativos_') !== false
+
+                ) 
+
+            {
+>>>>>>> Stashed changes
                 // Guardar el archivo Excel en una carpeta temporal
                 $excelFile->storeAs('temp', $nameFile);
 
@@ -46,7 +55,12 @@ class AprController extends Controller
 
                 //Aqui no esta llamando
                 //La ruta es del computador de estiven
+<<<<<<< Updated upstream
                 $output = shell_exec("python C:\\xampp\\htdocs\\automatizacionSena\\bots\\excels.py $rutaFile");
+=======
+                $output = shell_exec("python C:\\xampp\\htdocs\\bots\\excels.py $rutaFile");
+                
+>>>>>>> Stashed changes
                 // La ruta es del computador de jheniffer
                 #$output = shell_exec("python C:\\Users\\SENA\\Desktop\\bot\\bots\\excels.py $rutaFile");
 
