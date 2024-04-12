@@ -15,7 +15,7 @@ class PythonController extends Controller
         // $rutaArchivoPython = 'C:/xampp/htdocs/automatizacionSena/bots/prueba.py';
         // $rutaArchivoPython = 'C:/xampp/htdocs/automatizacionSena/bots/contratistasBaseD.py';
         $rutaArchivoPython = 'C:/xampp/htdocs/automatizacionSena/bots/asignacionResultados.py';
-
+        #$rutaArchivoPython = 'C:\xampp\htdocs\automatizacionSena\bots\prueba.py';
 
         // Ejecutar el script Python y capturar la salida completa
         exec("python {$rutaArchivoPython} 2>&1", $output, $returnCode);

@@ -7,8 +7,7 @@ from selenium.webdriver.chrome.options import Options
 from datetime import datetime
 
 # Ruta de la carpeta de descarga
-download_folder = "C:\\xampp\htdocs\\automatizacionSena\\bots\\documentos"
-#download_folder = "C:\\xampp\\htdocs\\bots\\documentos"
+download_folder = "C:\\Users\\SENA\\Desktop\\bot\\bots\\documentos"
 
 # Configurar las opciones de Chrome para la descarga
 chrome_options = Options()
@@ -20,10 +19,12 @@ chrome_options.add_experimental_option("prefs", {
 })
 
 
+
 # Configurar la conexión a la base de datos MySQL en PhpMyAdmin
 mysql_engine = create_engine('mysql+mysqlconnector://root:@localhost/prueba')
 
 try:
+    # ... Código para navegar y descargar el archivo Excel omitido por claridad ...
 
     # Obtener la lista de archivos descargados con el mismo título
     archivos_descargados = os.listdir(download_folder)
@@ -46,20 +47,7 @@ try:
     # Renombrar las columnas en el DataFrame
     columnas_renombradas = {'N°': 'novedad_numero', 'CURSO': 'curso', 'CÓDIGO FICHA': 'codigo_ficha', 'CÉDULA': 'cedula', 'NOMBRE APRENDIZ': 'nombre_aprendiz', 'TIPO NOVEDAD': 'tipo_novedad', 'SUBTIPO NOVEDAD': 'subtipo_novedad', 'NÚMERO RADICADO': 'numero_radicado', 'RADICADO RESPUESTA COORDIANCIÓN': 'radicado_respuesta', 'FECHA RESPUESTA': 'fecha_respuesta', 'OBSERVACIONES': 'observaciones', 'INSTRUCTORES NOTIFICADOS': 'noti_instructor', 'ESTADO NOVEDAD': 'estado_novedad', 'NUEVO CURSO': 'nuevo_curso', 'NOVEDAD REGISTRADA POR': 'novedad_registrada'}
     df.rename(columns=columnas_renombradas, inplace=True)
- 
-    df['id_aprendices'] = None 
-    df['id_aprendices'] = df['id_aprendices'].astype('Int64')
-
-    for index, row in df.iterrows():
-        
-        identificacion_aprendiz = row['cedula']
-        querys_id = f"SELECT id FROM aprendices WHERE identificacion_aprendiz = {identificacion_aprendiz} "
-        result = pd.read_sql_query(querys_id, con=mysql_engine)
-
-        if not result.empty:
-            df.at[index,'id_aprendices'] = result['id'].iloc[0]
-        else:
-            df.at[index,'id_aprendices'] = None
+    df['id_aprendices'] = 1
     
     # Obtener la fecha y hora actual para created_at
     now = datetime.now() 

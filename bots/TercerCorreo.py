@@ -23,7 +23,7 @@ def connect_to_database():
     try:
         connection = mysql.connector.connect(
             host="127.0.0.1",
-            port=3306,
+            port=3307,
             user="root",
             password="",
             database="prueba"
@@ -61,14 +61,15 @@ def enviar_correo(contexto=None):
             return
         #Consulta 
         # los resultados de aprendizaje para cada instructor 
-        query_results = f"SELECT CONCAT_WS(' ',c.nombre,c.apellidos) AS nombre_completo_instructor, a.resultado AS resultado_aprendizaje, b.actividad_proyecto, b.trimestre_curso, b.curso, e.ficha, a.juicio_evaluativo, a.estado_formacion ,CONCAT_WS(' ',a.nombre_aprendiz, a.apellidos_aprendiz) AS nombre_completo_aprendizaje, a.identificacion_aprendiz FROM resultados_asignados b INNER JOIN aprendices a ON b.cursos_id = a.cursos_id INNER JOIN instructores c ON c.id = a.instructores_id INNER JOIN cursos e ON e.id = b.cursos_id WHERE b.instructor_responsable = {id_instructor} AND b.trimestres_id = {id_trimester} AND a.instructores_id = b.instructor_responsable AND a.juicio_evaluativo = 'POR EVALUAR' AND a.estado_formacion = 'EN FORMACION' AND a.resultado LIKE CONCAT('%',b.resultado,'%')"
+        query_results = f"SELECT CONCAT_WS(' ', i.nombre, i.apellidos) AS nombre_completo, r.resultado AS resultado_aprendizaje,actividad_proyecto,trimestre_curso, curso, numero_ficha, juicio_evaluativo FROM resultados_asignados r INNER JOIN instructores i ON r.instructor_responsable = i.id INNER JOIN aprendices a ON i.id = a.instructores_id WHERE r.instructor_responsable = {id_instructor} AND r.trimestres_id = {id_trimester} AND juicio_evaluativo = 'POR EVALUAR' "
+
         cursor.execute(query_results)
         instructors = cursor.fetchall()
         print("Funciono")
         # Genera el HTML para la tabla de resultados de aprendizaje para cada instructor.
-        html_tabla = "<table border='1'><tr><th>Nombre del Instructor</th><th>Resultado de Aprendizaje</th><th>Actividad del Proyecto</th><th>Trimestre del Curso</th><th>Nombre del Curso</th><th>Numero de Ficha</th><th>Juicio de Evaluación</th><th>Estado de Formación</th><th>Nombre del Aprendiz</th><th>Identificación del Aprendiz</th></tr>"
+        html_tabla = "<table border='1'><tr><th>Nombre del Instructor</th><th>Resultado de Aprendizaje</th><th>Actividad del Proyecto</th><th>Trimestre del Curso</th><th>Nombre del Curso</th><th>Numero de Ficha</th><th>Juicio de Evaluación</th></tr>"
         for resultado in instructors:
-            html_tabla += f"<tr><td>{resultado[0]}</td><td>{resultado[1]}</td><td>{resultado[2]}</td><td>{resultado[3]}</td><td>{resultado[4]}</td><td>{resultado[5]}</td><td>{resultado[6]}</td><td>{resultado[7]}</td><td>{resultado[8]}</td><td>{resultado[9]}</td></tr>"
+            html_tabla += f"<tr><td>{resultado[0]}</td><td>{resultado[1]}</td><td>{resultado[2]}</td><td>{resultado[3]}</td><td>{resultado[4]}</td><td>{resultado[5]}</td><td>{resultado[6]}</td></tr>"
         html_tabla += "</table>"
 
         #Configuracion del correo
@@ -203,7 +204,7 @@ def program_shipments():
 
         if fecha_envio_correo:
             print(f"Fecha de envío del correo programada para: {fecha_envio_correo}")
-            fecha_envio_correo = datetime(fecha_envio_correo.year, fecha_envio_correo.month, fecha_envio_correo.day, 12, 30, 0)
+            fecha_envio_correo = datetime(fecha_envio_correo.year, fecha_envio_correo.month, fecha_envio_correo.day, 17, 50, 0)
 
             print("Agregando tarea programada para enviar correo...")
             scheduler.add_job(enviar_correo, 'date', run_date=fecha_envio_correo)

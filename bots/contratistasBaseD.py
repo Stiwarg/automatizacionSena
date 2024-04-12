@@ -5,11 +5,10 @@ from selenium import webdriver
 from selenium.webdriver.chrome.service import Service
 from selenium.webdriver.chrome.options import Options
 from datetime import datetime
-import time
 
 # Ruta de la carpeta de descarga
-#download_folder = "C:\\Users\\SENA\\Desktop\\bot\\bots\\documentos"
-download_folder ="C:\\xampp\htdocs\\automatizacionSena\\bots\\documentos"
+download_folder = "C:\\Users\\SENA\\Desktop\\bot\\bots\\documentos"
+#download_folder = "C:\\xampp\\htdocs\\bots\\documentos"
 
 
 # Configurar las opciones de Chrome para la descarga
@@ -26,10 +25,11 @@ chrome_options.add_experimental_option("prefs", {
 mysql_engine = create_engine('mysql+mysqlconnector://root:@localhost/prueba')
 
 try:
+    # ... Código para navegar y descargar el archivo Excel omitido por claridad ...
 
     # Obtener la lista de archivos descargados con el mismo título
     archivos_descargados = os.listdir(download_folder)
-    titulo_archivo = "CONTRATISTAS_2024_BD"  # Ajusta esto según el título de tus archivos
+    titulo_archivo = "Datos_Contratistas_"  # Ajusta esto según el título de tus archivos
     
     archivos_filtrados = [archivo for archivo in archivos_descargados if archivo.startswith(titulo_archivo)]
     
@@ -39,47 +39,27 @@ try:
     # Tomar el último archivo descargado con el mismo título
     ultimo_archivo = archivos_filtrados[-1]
 
-
     # Construir la ruta completa del último archivo descargado
     excel_file_path = os.path.join(download_folder, ultimo_archivo)
-    print("hola")
 
     # Leer el archivo Excel descargado
     df = pd.read_excel(excel_file_path)
+    
     # Renombrar la columna en el DataFrame
     df.rename(columns={'Nombre del contratista': 'nombre'}, inplace=True)
     df.rename(columns={'Identificación': 'identificacion'}, inplace=True)
-    df.rename(columns={'Programa': 'instructores_area_id'}, inplace=True)
+    df.rename(columns={'Programa': 'programa'}, inplace=True)
     df.rename(columns={'Supervisor': 'supervisor'}, inplace=True)
     df.rename(columns={'CORREO': 'correo'}, inplace=True)
     df.rename(columns={'TELEFONO': 'telefono'}, inplace=True)
     df['tipo_contratos_id'] = 1
+    df['instructores_area_id'] = 1
 
     # Obtener la fecha y hora actual para created_at
     now = datetime.now()
 
     # Añadir el campo created_at al DataFrame con la fecha y hora actual
     df['created_at'] = now
-    df['updated_at'] = now
-
-    df['instructor_area'] = None
-    for index, row in df.iterrows():
-
-        area_instructor = row['instructores_area_id']
-        querys_id_area = f"SELECT id FROM instructores_area WHERE area = '{area_instructor}' "
-        result = pd.read_sql_query(querys_id_area, con=mysql_engine)
-        print("Resultados de la consulta: ", result)
-        if not result.empty:
-            df.at[index, 'instructor_area'] = result['id'].iloc[0]
-        else: 
-            df.at[index, 'instructor_area'] = None
-    
-    time.sleep(0.1)    
-    df['instructor_area'] = df['instructor_area'].astype('Int64')
-    df['instructores_area_id'] = df['instructor_area']
-
-    df.drop(columns=['instructor_area'], inplace=True)
-    
 
     # Consultar la base de datos para obtener los nombres que ya existen
     existing_nombres = pd.read_sql_query("SELECT nombre FROM instructores", con=mysql_engine)
@@ -89,7 +69,7 @@ try:
 
     # Insertar los datos en la tabla existente en la base de datos MySQL
     if not df_to_insert.empty:
-        df_to_insert.to_sql('instructores', con=mysql_engine, if_exists='append', index=False, dtype={'created_at': DateTime,'updated_at': DateTime})
+        df_to_insert.to_sql('instructores', con=mysql_engine, if_exists='append', index=False, dtype={'created_at': DateTime})
         print("Datos insertados correctamente en la tabla instructores.")
     else:
         print("No hay nuevos datos para insertar en la tabla instructores.")

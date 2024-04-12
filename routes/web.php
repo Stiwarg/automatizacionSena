@@ -53,12 +53,16 @@ Route::get('/segundo-correo', [EmailOneController::class, 'secondEmail'])->name(
 Route::get('/tercer-correo', [EmailOneController::class, 'thirdEmail'])->name('emailone.thirdEmail');
 
 Route::get('/home', [NotiController::class, 'index'])->name('layouts.main_template');
-Route::get('/primer-correo', [NotiController::class, 'index'])->name('layouts.main_template');
+
+Route::post('/primer-correo', [NotiController::class, 'index'])->name('layouts.main_template');
 
 
 // Route::post('/home', 'PythonController@ejecutarPython')->name('ejecutar.python');
+Route::get('/home', [PythonController::class, 'reenviar'])->name('python.reenviar');
+Route::post('/contratistas', [PythonController::class, 'reenviar'])->name('tables.index_contractor');
+// Route::post('/contratistas', 'App\Http\Controllers\PythonController@reenviar')->name('python.reenviar');
 // Route::post('/contractor', 'PythonController@ejecutarPython')->name('python.reenviar');
-Route::post('/contractor', [PythonController::class, 'index'])->name('python.reenviar');
+
 
 
 Route::post('/home', 'PythonController@ejecutarPython')->name('layouts.main_template');
