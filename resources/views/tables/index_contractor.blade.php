@@ -12,16 +12,16 @@
 <h1>Instructores Contratistas</h1>
 
 <table class="table table-bordered" id="Table">
-    <thead>
-      <tr>
-        <th scope="col">Identificacion</th>
-        <th scope="col">Nombre</th>
-        <th scope="col">Correo</th>
-        <th scope="col">Telefono</th>
-        <th scope="col">habilitacion</th>
-        <th scope="col">Enviar Reporte</th>
-      </tr>
-    </thead>
+      <thead>
+          <tr>
+            <th scope="col">Identificacion</th>
+            <th scope="col">Nombre</th>
+            <th scope="col">Correo</th>
+            <th scope="col">Telefono</th>
+            <th scope="col">habilitacion</th>
+            <th scope="col">Enviar Reporte</th>
+          </tr>
+      </thead>
     <tbody>
         @foreach ($contractors as $contra)
           <tr>
@@ -44,7 +44,10 @@
                   <button type="submit" class="btn btn-primary">Reenviar Correo
                   </button>
                 </form>
-            </tbody>  
+            </td>
+          </tr>
+        @endforeach
+    </tbody>  
 </table>
 
 @endsection
@@ -54,4 +57,3 @@
       $(document).ready(function () { $('#Table').DataTable(); });
     </script>
 @endsection
-
