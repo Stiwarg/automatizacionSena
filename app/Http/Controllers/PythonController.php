@@ -24,7 +24,9 @@ class PythonController extends Controller
     public function ejecutarPython()
     {
         // Ruta al archivo Python
-        $rutaArchivoPython = 'C:/xampp/htdocs/automatizacionSena/bots/prueba.py';
+        // $rutaArchivoPython = 'C:/xampp/htdocs/automatizacionSena/bots/prueba.py';
+        // $rutaArchivoPython = 'bots/prueba.py';
+        $rutaArchivoPython = 'C:/xamppTC/htdocs/laravelapp/automatizacionSena/bots/prueba.py';
 
 
         // Ejecutar el script Python y capturar la salida completa
