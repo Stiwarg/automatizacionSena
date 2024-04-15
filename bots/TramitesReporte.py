@@ -13,7 +13,7 @@ from datetime import datetime, timedelta
 
 def run_code():
     #Se define la carperta donde se va a descargar los archivos:
-    download_folder = "C:\\Users\\SENA\\Desktop\\bot\\bots\\documentos"
+    download_folder = "C:\\xampp\\htdocs\\automatizacionSena\\bots\\documentos"
 
     #Configurar las opciones de chrome 
     chrome_options = Options()
@@ -25,7 +25,7 @@ def run_code():
     })
 
     #Se crea un servicio de Chrome Webdriver y se inicia el navegador Chrome con las opciones 
-    service = Service(executable_path=r"C:\dchrome\chromedriver.exe")
+    service = Service(executable_path=r"C:\xampp\htdocs\automatizacionSena\bots\chromedriver.exe")
     driver = webdriver.Chrome(service=service, options=chrome_options)
 
     #Se navega a la pagina web

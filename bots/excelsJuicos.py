@@ -6,7 +6,7 @@ import subprocess
 def move_file_to_documents_excels(ruta_file):
     # Ruta de la carpeta de documentos en el proyecto de Python
     #document_folder_path = 'C:\\Users\\SENA\\Desktop\\bot\\bots\\documentos'
-    document_folder_path = 'C:\\xampp\htdocs\\automatizacionSena\\bots\\documentos'
+    document_folder_path = 'C:\\xampp\\htdocs\\automatizacionSena\\bots\\documentos'
 
     try:
         # Obtener el nombre del archivo

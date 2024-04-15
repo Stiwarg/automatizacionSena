@@ -3,10 +3,10 @@ import subprocess
 import time
 # Lista de scripts a ejecutar
 scripts = [
-    "C:/Users/SENA/Desktop/bot/bots/reportefichas.py",
-    "C:/Users/SENA/Desktop/bot/bots/asignacionResultados.py",
-    "C:/Users/SENA/Desktop/bot/bots/ReporteNovedades.py",
-    "C:/Users/SENA/Desktop/bot/bots/TramitesReporte.py"
+    "C:/xampp/htdocs/automatizacionSena/bots/reportefichas.py",
+    "C:/xampp/htdocs/automatizacionSena/bots/asignacionResultados.py",
+    "C:/xampp/htdocs/automatizacionSena/bots/ReporteNovedades.py",
+    "C:/xampp/htdocs/automatizacionSena/bots/TramitesReporte.py"
 ]
 
 for script in scripts:
@@ -19,27 +19,22 @@ for script in scripts:
 
 time.sleep(10)
 #ejecucion script subida en base de datos
-subprocess.call(["python", "C:/Users/SENA/Desktop/bot/bots/areaPlanta.py"])
+subprocess.call(["python", "C:/xampp/htdocs/automatizacionSena/bots/areaPlanta.py"])
 time.sleep(10)
-subprocess.call(["python", "C:/Users/SENA/Desktop/bot/bots/contratistasArea.py"])
+subprocess.call(["python", "C:/xampp/htdocs/automatizacionSena/bots/contratistaArea.py"])
 time.sleep(10)
-subprocess.call(["python", "C:/Users/SENA/Desktop/bot/bots/contratistasBaseD.py"])
+subprocess.call(["python", "C:/xampp/htdocs/automatizacionSena/bots/contratistasBaseD.py"])
 time.sleep(10)
-subprocess.call(["python", "C:/Users/SENA/Desktop/bot/bots/juiciosEvaluativosBaseD.py"])
+subprocess.call(["python", "C:/xampp/htdocs/automatizacionSena/bots/juiciosEvaluativosBaseD.py"])
 time.sleep(10)
-subprocess.call(["python", "C:/Users/SENA/Desktop/bot/bots/plantaBaseD.py"])
+subprocess.call(["python", "C:/xampp/htdocs/automatizacionSena/bots/plantaBaseD.py"])
 time.sleep(10)
-subprocess.call(["python", "C:/Users/SENA/Desktop/bot/bots/reporteAsignacionBaseD.py"])
+subprocess.call(["python", "C:/xampp/htdocs/automatizacionSena/bots/reporteAsignacionBaseD.py"])
 time.sleep(10)
-subprocess.call(["python", "C:/Users/SENA/Desktop/bot/bots/reporteNovedadesBaseD.py"])
+subprocess.call(["python", "C:/xampp/htdocs/automatizacionSena/bots/reporteNovedadesBaseD.py"])
 time.sleep(10)
-subprocess.call(["python", "C:/Users/SENA/Desktop/bot/bots/ReporteNovedadesBaseDa.py"])
+subprocess.call(["python", "C:/xampp/htdocs/automatizacionSena/bots/ReporteNovedadesBaseDa.py"])
 time.sleep(10)
-subprocess.call(["python", "C:/Users/SENA/Desktop/bot/bots/reporteTituladaBaseD.py"])
-time.sleep(10)
-subprocess.call(["python", "C:/Users/SENA/Desktop/bot/bots/excels.py"])
-time.sleep(10)
-subprocess.call(["python", "C:/Users/SENA/Desktop/bot/bots/EnviosCorreos.py"])
-time.sleep(10)
-subprocess.call(["python", "C:/Users/SENA/Desktop/bot/bots/TercerCorreo.py"])
+subprocess.call(["python", "C:/xampp/htdocs/automatizacionSena/bots/reporteTituladaBaseD.py"])
+
 

@@ -26,7 +26,7 @@ class PythonController extends Controller
         // Ruta al archivo Python
         // $rutaArchivoPython = 'C:/xampp/htdocs/automatizacionSena/bots/prueba.py';
         // $rutaArchivoPython = 'bots/prueba.py';
-        $rutaArchivoPython = 'C:/xamppTC/htdocs/laravelapp/automatizacionSena/bots/prueba.py';
+        $rutaArchivoPython = 'C:\xampp\htdocs\automatizacionSena\bots\prueba.py';
 
 
         // Ejecutar el script Python y capturar la salida completa
@@ -42,7 +42,7 @@ class PythonController extends Controller
 
     public function reenviar()
     {
-        $rutaArchivoPython = 'C:/xamppTC/htdocs/laravelapp/automatizacionSena/bots/TercerCorreo.py';
+        $rutaArchivoPython = 'C:\xampp\htdocs\automatizacionSena\bots\TercerCorreo.py';
         
         // Ejecutar el script Python y capturar la salida completa
         exec("python {$rutaArchivoPython} 2>&1", $output1, $returnCode);

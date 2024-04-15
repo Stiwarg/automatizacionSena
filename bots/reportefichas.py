@@ -11,7 +11,7 @@ from selenium.webdriver.support import expected_conditions as EC
 
 def run_code():
     # Se define la carpeta donde se va a descargar los archivos:
-    download_folder = "C:\\Users\\SENA\\Desktop\\bot\\bots\\documentos"
+    download_folder = "C:\\xampp\\htdocs\\automatizacionSena\\bots\\documentos"
 
     # Configurar las opciones de Chrome 
     chrome_options = Options()

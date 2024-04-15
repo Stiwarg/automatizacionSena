@@ -17,7 +17,7 @@ import mysql.connector
 def run_code():
 
     #Se define la carperta donde se va a descargar los archivos:
-    download_folder = "C:\\Users\\SENA\\Desktop\\bot\\bots\\documentos"
+    download_folder = "C:\\xampp\\htdocs\\automatizacionSena\\bots\\documentos"
 
     #Configurar las opciones de chrome 
     chrome_options = Options()
@@ -137,7 +137,7 @@ def connect_to_database():
             port=3306,
             user="root",
             password="",
-            database="proyecto"
+            database="prueba"
         )
         return connection
     except mysql.connector.Error as error:

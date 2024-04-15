@@ -3,10 +3,10 @@ import time
 
 # Lista de scripts a ejecutar
 scripts = [
-    "C:/Users/SENA/Desktop/bot/bots/reportefichas.py",
-    "C:/Users/SENA/Desktop/bot/bots/asignacionResultados.py",
-    "C:/Users/SENA/Desktop/bot/bots/ReporteNovedades.py",
-    "C:/Users/SENA/Desktop/bot/bots/TramitesReporte.py"
+    "C:/xampp/htdocs/automatizacionSena/bots/reportefichas.py",
+    "C:/xampp/htdocs/automatizacionSena/bots/asignacionResultados.py",
+    "C:/xampp/htdocs/automatizacionSena/bots/ReporteNovedades.py",
+    "C:/xampp/htdocs/automatizacionSena/bots/TramitesReporte.py"
 ]
 
 # Ejecutar los primeros scripts de la lista
@@ -23,7 +23,7 @@ for script in scripts:
         print(f"Se ha producido un error al ejecutar el script {script}: {e}")
 
 # Esperar 10 segundos antes de ejecutar los siguientes scripts
-time.sleep(10)
+time.sleep(60)
 
 # Lista de scripts adicionales
 otros_scripts = [
@@ -36,15 +36,12 @@ otros_scripts = [
     "reporteNovedadesBaseD.py",
     "ReporteNovedadesBaseDa.py",
     "reporteTituladaBaseD.py",
-    "excels.py",
-    "EnviosCorreos.py",
-    "TercerCorreo.py"
 ]
 
 # Ejecutar los scripts adicionales
 for script in otros_scripts:
     print(f"Ejecutando el script: {script}")
-    process = subprocess.Popen(["python", f"C:/Users/SENA/Desktop/bot/bots/{script}"])
+    process = subprocess.Popen(["python", f"C:/xampp/htdocs/automatizacionSena/bots{script}"])
     try:
         # Esperar un tiempo máximo de 60 segundos para que el proceso termine
         process.wait(timeout=60)
